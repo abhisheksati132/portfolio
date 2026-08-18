@@ -3,19 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Primary Meta Tags -->
   <title>Abhishek Sati | CSE Undergrad & Developer Portfolio</title>
   <meta name="title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
   <meta name="description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
   <meta name="keywords" content="Abhishek Sati, Portfolio, VIT, CSE, Data Science, Web Developer, NewsAtlas, Klipport, React, Node.js" />
   <meta name="author" content="Abhishek Sati" />
+  <meta name="theme-color" content="#030712" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
-  <meta property="og:description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT)." />
-  <meta property="og:image" content="assets/news_atlas.jpg" />
+  <meta property="og:description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
+  <!-- REPLACE your-domain.com with your real production domain so scrapers resolve the image -->
+  <meta property="og:image" content="https://your-domain.com/assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Abhishek Sati - Developer Portfolio" />
+  <meta property="og:url" content="https://your-domain.com" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
+  <meta name="twitter:description" content="CSE (Data Science) undergrad building high-performance telemetry & secure systems. Developer of NewsAtlas and Klipport." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/og-card.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abhishek Sati",
+    "jobTitle": "Computer Science Undergrad (Data Science)",
+    "email": "mailto:Abhisheksativit@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Vellore Institute of Technology"
+    },
+    "knowsAbout": ["React", "Node.js", "Supabase", "Mapbox GL JS", "Web Crypto API", "PostgreSQL", "MongoDB"],
+    "sameAs": [
+      "https://www.linkedin.com/in/abhisheksati132",
+      "https://github.com/abhisheksati132",
+      "https://www.instagram.com/satiabhishek"
+    ]
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +61,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- Global Ambient Background Elements -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
@@ -60,7 +96,7 @@
     <section class="hero" id="home">
       <div class="container hero-content">
         <div class="badge-container">
-          <span class="hero-badge">Open For Opportunities</span>
+          <span class="hero-badge"><span class="pulse-dot" aria-hidden="true"></span>Open For Opportunities</span>
         </div>
         <p class="eyebrow">Computer Science Undergrad</p>
         <h1>Building high-performance <span class="gradient-text">digital telemetry</span> & <span class="gradient-text">secure systems</span>.</h1>
@@ -73,9 +109,76 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
           <a class="button button-secondary" href="#contact">Contact Me</a>
+          <!-- Add your resume PDF to assets/Abhishek_Sati_Resume.pdf -->
+          <a class="button button-ghost" href="assets/Abhishek_Sati_Resume.pdf" download>
+            <span>Resume</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+
+        <div class="terminal-card" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">abhishek@portfolio:~</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="t-prompt">abhishek@portfolio:~$</span> whoami</p>
+            <p class="t-out">B.Tech CSE (Data Science) @ VIT - Full-Stack Developer</p>
+            <p><span class="t-prompt">abhishek@portfolio:~$</span> cat stack.txt</p>
+            <p class="t-out">React 19 - Node.js - Supabase - Web Crypto API - Mapbox GL</p>
+            <p><span class="t-prompt">abhishek@portfolio:~$</span> <span id="typeTarget"></span><span class="cursor-blink">&#9608;</span></p>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value gradient-text">9.08</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value gradient-text">02</span>
+            <span class="stat-label">Live Deployments</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value gradient-text">01</span>
+            <span class="stat-label">Industry Internship</span>
+          </div>
         </div>
       </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to about section">
+        <span></span>
+      </a>
     </section>
+
+    <!-- Tech Marquee -->
+    <div class="tech-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>React 19</span>
+        <span>Node.js</span>
+        <span>Supabase</span>
+        <span>Mapbox GL JS</span>
+        <span>Tailwind CSS v4</span>
+        <span>Socket.io</span>
+        <span>Web Crypto API</span>
+        <span>PostgreSQL</span>
+        <span>MongoDB</span>
+        <span>Groq AI</span>
+        <span>Vercel</span>
+        <span>React 19</span>
+        <span>Node.js</span>
+        <span>Supabase</span>
+        <span>Mapbox GL JS</span>
+        <span>Tailwind CSS v4</span>
+        <span>Socket.io</span>
+        <span>Web Crypto API</span>
+        <span>PostgreSQL</span>
+        <span>MongoDB</span>
+        <span>Groq AI</span>
+        <span>Vercel</span>
+      </div>
+    </div>
 
     <!-- About Section -->
     <section class="section" id="about">
@@ -113,7 +216,7 @@
         <p class="section-label">02 // Expertise</p>
         <h2>My Technical Arsenal</h2>
         <div class="skills-grid">
-          
+
           <div class="skill-card glass-card">
             <div class="skill-header">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
@@ -151,7 +254,6 @@
               <span>Supabase</span>
               <span>PostgreSQL</span>
               <span>MongoDB</span>
-              <span>SQL</span>
               <span>Vercel</span>
             </div>
           </div>
@@ -165,7 +267,6 @@
               <span>C++</span>
               <span>Python</span>
               <span>Java</span>
-              <span>SQL</span>
             </div>
           </div>
 
@@ -197,8 +298,26 @@
           <!-- Project 1: NewsAtlas -->
           <article class="project-showcase glass-card">
             <div class="project-img-container">
-              <img src="assets/news_atlas.jpg" alt="NewsAtlas Intelligence Terminal Mockup" loading="lazy" decoding="async" />
-              <div class="project-overlay"></div>
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="b-dot red"></span>
+                  <span class="b-dot yellow"></span>
+                  <span class="b-dot green"></span>
+                  <span class="b-url">https://news-atlas-live.vercel.app</span>
+                </div>
+                <div class="browser-viewport">
+                  <picture>
+                    <source srcset="assets/news_atlas.webp" type="image/webp" />
+                    <img src="assets/news_atlas.jpg" alt="NewsAtlas Intelligence Terminal on an interactive 3D globe" loading="lazy" decoding="async" width="1000" height="558" />
+                  </picture>
+                  <div class="project-overlay"></div>
+                  <div class="project-metrics">
+                    <span class="metric-chip"><span class="metric-dot live"></span>Live</span>
+                    <span class="metric-chip">React 19</span>
+                    <span class="metric-chip">Vercel Edge</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="project-details">
               <span class="project-meta-category">Geospatial Telemetry Terminal</span>
@@ -228,8 +347,26 @@
           <!-- Project 2: Klipport -->
           <article class="project-showcase glass-card reversed">
             <div class="project-img-container">
-              <img src="assets/klipport.jpg" alt="Klipport PWA Interface Mockup" loading="lazy" decoding="async" />
-              <div class="project-overlay"></div>
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="b-dot red"></span>
+                  <span class="b-dot yellow"></span>
+                  <span class="b-dot green"></span>
+                  <span class="b-url">https://klipport.vercel.app</span>
+                </div>
+                <div class="browser-viewport">
+                  <picture>
+                    <source srcset="assets/klipport.webp" type="image/webp" />
+                    <img src="assets/klipport.jpg" alt="Klipport secure clipboard PWA pairing interface" loading="lazy" decoding="async" width="1000" height="558" />
+                  </picture>
+                  <div class="project-overlay"></div>
+                  <div class="project-metrics">
+                    <span class="metric-chip"><span class="metric-dot live"></span>Live</span>
+                    <span class="metric-chip">Web Crypto</span>
+                    <span class="metric-chip">PWA</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="project-details">
               <span class="project-meta-category">Secure Cross-Device Sync & PWA</span>
@@ -259,7 +396,29 @@
 
           <!-- Project 3: Portfolio -->
           <article class="project-showcase glass-card">
-            <div class="project-details full-width">
+            <div class="project-img-container">
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="b-dot red"></span>
+                  <span class="b-dot yellow"></span>
+                  <span class="b-dot green"></span>
+                  <span class="b-url">github.com/abhisheksati132/portfolio</span>
+                </div>
+                <div class="browser-viewport">
+                  <picture>
+                    <source srcset="assets/portfolio.webp" type="image/webp" />
+                    <img src="assets/portfolio.jpg" alt="Developer portfolio site interface mockup" loading="lazy" decoding="async" width="1000" height="625" />
+                  </picture>
+                  <div class="project-overlay"></div>
+                  <div class="project-metrics">
+                    <span class="metric-chip">Vanilla JS</span>
+                    <span class="metric-chip">A11y</span>
+                    <span class="metric-chip">0 deps</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-details">
               <span class="project-meta-category">Static Showcase Site</span>
               <h3>Developer Portfolio Showcase</h3>
               <p class="project-desc">
@@ -272,8 +431,9 @@
                 <span>Responsive Design</span>
               </div>
               <div class="project-actions">
-                <a href="#home" class="project-btn secondary-btn">
-                  <span>Back to Top</span>
+                <a href="https://github.com/abhisheksati132/portfolio" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
+                  <span>Source Code</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               </div>
             </div>
@@ -289,7 +449,7 @@
         <p class="section-label">04 // Timeline</p>
         <h2>Experience & Focus</h2>
         <div class="timeline">
-          
+
           <div class="timeline-item glass-card">
             <div class="timeline-header">
               <h3>Software Development Intern</h3>
@@ -316,7 +476,7 @@
         <p class="section-label">05 // Academics</p>
         <h2>Education</h2>
         <div class="education-grid">
-          
+
           <div class="education-card glass-card">
             <h3>Vellore Institute Of Technology</h3>
             <span class="edu-date">B.Tech CSE (Data Science) // 2024 - 2028</span>
@@ -350,10 +510,10 @@
           <h2>Let's Start a Conversation</h2>
           <p>Interested in collaborating on frontend development, full-stack systems, or data visualization pipelines? Drop me a line directly or connect through my social handles.</p>
           <div class="contact-details">
-            <div class="contact-item">
+            <a class="contact-item contact-mail" href="mailto:Abhisheksativit@gmail.com">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               <span>Abhisheksativit@gmail.com</span>
-            </div>
+            </a>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer">
                 <span>LinkedIn</span>
@@ -368,7 +528,8 @@
           </div>
         </div>
 
-        <form class="contact-form glass-card" id="contactForm">
+        <form class="contact-form glass-card" id="contactForm" novalidate>
+          <input type="hidden" name="access_key" value="0fac9bf3-baac-4516-8ebf-7a88caa1078b" />
           <div class="input-group">
             <label for="formName">Name</label>
             <input type="text" id="formName" name="name" placeholder="Abhishek Sati" required />
@@ -381,11 +542,11 @@
             <label for="formMessage">Message</label>
             <textarea id="formMessage" name="message" rows="5" placeholder="Let's build something epic..." required></textarea>
           </div>
-          <button type="submit" class="button button-primary">
-            <span>Send Message</span>
+          <button type="submit" class="button button-primary" id="submitBtn">
+            <span id="submitBtnLabel">Send Message</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
-          <p class="form-status" id="formStatus"></p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -396,6 +557,10 @@
       <p>© 2026 Abhishek Sati. Built with pure HTML, Vanilla CSS3 & JS.</p>
     </div>
   </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
