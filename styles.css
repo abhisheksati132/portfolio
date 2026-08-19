@@ -1077,6 +1077,61 @@ textarea:focus-visible {
   color: var(--accent-text);
 }
 
+.contact-mail-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+}
+
+.copy-email-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--accent-text);
+  transform: translateY(-1px);
+}
+
+.copy-email-btn:active {
+  transform: scale(0.95);
+}
+
+.copy-tooltip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.copy-email-btn:hover .copy-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .social-links {
   display: flex;
   gap: 0.6rem;

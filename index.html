@@ -28,18 +28,18 @@
   <meta property="og:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
   <meta property="og:description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
   <!-- REPLACE your-domain.com with your real production domain so scrapers resolve the image -->
-  <link rel="canonical" href="https://your-domain.com/" />
-  <meta property="og:image" content="https://your-domain.com/assets/og-card.png" />
+  <link rel="canonical" href="https://abhisheksati.vercel.app/" />
+  <meta property="og:image" content="https://abhisheksati.vercel.app/assets/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Abhishek Sati - Developer Portfolio" />
-  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:url" content="https://abhisheksati.vercel.app" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
   <meta name="twitter:description" content="CSE (Data Science) undergrad building real-time data systems & secure software. Developer of NewsAtlas and Klipport." />
-  <meta name="twitter:image" content="https://your-domain.com/assets/og-card.png" />
+  <meta name="twitter:image" content="https://abhisheksati.vercel.app/assets/og-card.png" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -144,11 +144,11 @@
           </div>
           <div class="stat">
             <span class="stat-value" data-count="3" data-pad="2">00</span>
-            <span class="stat-label">Live Projects</span>
+            <span class="stat-label">Live Systems</span>
           </div>
           <div class="stat">
-            <span class="stat-value" data-count="1" data-pad="2">00</span>
-            <span class="stat-label">Industry Internship</span>
+            <span class="stat-value" data-count="8" data-pad="2">00</span>
+            <span class="stat-label">Core Tech Stacks</span>
           </div>
         </div>
 
@@ -463,10 +463,16 @@
           <h2>Let's start a conversation</h2>
           <p>Interested in collaborating on frontend development, full-stack systems, or data visualization pipelines? Send a note through the form, or reach out on any of my channels.</p>
           <div class="contact-details">
-            <a class="contact-item contact-mail" href="mailto:Abhisheksativit@gmail.com">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <span>Abhisheksativit@gmail.com</span>
-            </a>
+            <div class="contact-mail-wrapper">
+              <a class="contact-item contact-mail" href="mailto:Abhisheksativit@gmail.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>Abhisheksativit@gmail.com</span>
+              </a>
+              <button class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address to clipboard" type="button" title="Copy email address">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span class="copy-tooltip">Copy</span>
+              </button>
+            </div>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer">
                 <span>LinkedIn</span>
@@ -483,6 +489,7 @@
 
         <form class="contact-form card" id="contactForm" novalidate>
           <input type="hidden" name="access_key" value="0fac9bf3-baac-4516-8ebf-7a88caa1078b" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
           <div class="input-group">
             <label for="formName">Name</label>
             <input type="text" id="formName" name="name" placeholder="Abhishek Sati" required />

@@ -323,4 +323,40 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.setProperty('--my', `${e.clientY - rect.top}px`);
     });
   });
+
+  // --- Copy Email to Clipboard ---
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = 'Abhisheksativit@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast('Email address copied to clipboard!', 'success');
+        const tooltip = copyEmailBtn.querySelector('.copy-tooltip');
+        if (tooltip) tooltip.textContent = 'Copied!';
+        setTimeout(() => {
+          if (tooltip) tooltip.textContent = 'Copy';
+        }, 2000);
+      } catch (err) {
+        showToast(`Email: ${email}`, 'success');
+      }
+    });
+  }
+
+  // --- Keyboard Shortcuts Navigation ---
+  document.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    const key = e.key.toLowerCase();
+    if (key === 't' && themeToggle) {
+      themeToggle.click();
+    } else if (key === 'p') {
+      document.getElementById('projects')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    } else if (key === 'c') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    } else if (key === 'a') {
+      document.getElementById('about')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+  });
 });
