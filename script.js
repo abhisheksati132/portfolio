@@ -197,10 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const payload = new FormData(contactForm);
         const res = await fetch(FORM_ENDPOINT, {
           method: 'POST',
-          body: payload
+          body: formData
         });
 
         if (!res.ok) throw new Error('Request failed');
