@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary Meta Tags -->
-  <title>Abhishek Sati | CSE Undergrad & Developer Portfolio</title>
+  <title>Abhishek Sati | CSE Undergrad &amp; Developer Portfolio</title>
   <meta name="title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
   <meta name="description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
   <meta name="keywords" content="Abhishek Sati, Portfolio, VIT, CSE, Data Science, Web Developer, NewsAtlas, Klipport, React, Node.js" />
   <meta name="author" content="Abhishek Sati" />
   <meta name="theme-color" content="#FAF9F5" />
+  <meta name="color-scheme" content="light dark" />
   <script>
     (function () {
       try {
@@ -33,6 +34,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Abhishek Sati - Developer Portfolio" />
   <meta property="og:url" content="https://abhisheksati.vercel.app" />
+  <meta property="og:site_name" content="Abhishek Sati — Portfolio" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -47,7 +50,7 @@
     "@type": "Person",
     "name": "Abhishek Sati",
     "jobTitle": "Computer Science Undergrad (Data Science)",
-    "email": "mailto:Abhisheksativit@gmail.com",
+    "email": "mailto:abhisheksativit@gmail.com",
     "alumniOf": {
       "@type": "CollegeOrUniversity",
       "name": "Vellore Institute of Technology"
@@ -60,16 +63,32 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Abhishek Sati — Portfolio",
+    "url": "https://abhisheksati.vercel.app/",
+    "author": { "@type": "Person", "name": "Abhishek Sati" },
+    "inLanguage": "en"
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FAF9F5'/><text x='50%' y='65%' font-size='50' font-family='monospace' font-weight='bold' fill='%23D97757' text-anchor='middle'>&lt;/&gt;</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>@media(prefers-color-scheme:dark){rect{fill:%23262624}}</style><rect width='100' height='100' rx='20' fill='%23FAF9F5'/><text x='50%' y='65%' font-size='50' font-family='monospace' font-weight='bold' fill='%23D97757' text-anchor='middle'>&lt;/&gt;</text></svg>" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Preconnect to external embed origin -->
+  <link rel="preconnect" href="https://github-readme-stats.vercel.app" />
+  <link rel="dns-prefetch" href="https://github-readme-stats.vercel.app" />
+
+  <link rel="stylesheet" href="styles.css?v=20260824" />
 </head>
 <body>
 
@@ -92,11 +111,11 @@
         <span class="logo-text">Abhishek Sati</span>
       </a>
       <div class="header-right">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode" aria-pressed="false">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode" aria-pressed="false">
           <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
           <span></span>
           <span></span>
           <span></span>
@@ -130,7 +149,7 @@
             <span>View My Work</span>
           </a>
           <a class="button button-secondary" href="#contact">Get In Touch</a>
-          <a class="button button-ghost" href="assets/Abhishek_Sati_Resume.pdf" download>
+          <a class="button button-ghost" href="assets/Abhishek_Sati_Resume.pdf" target="_blank" rel="noopener" type="application/pdf">
             <span>Resume</span>
           </a>
         </div>
@@ -142,7 +161,7 @@
           </div>
           <div class="stat">
             <span class="stat-value" data-count="3" data-pad="2">00</span>
-            <span class="stat-label">Live Systems</span>
+            <span class="stat-label">Major Projects</span>
           </div>
           <div class="stat">
             <span class="stat-value" data-count="8" data-pad="2">00</span>
@@ -191,7 +210,7 @@
           <h2>Crafting solutions at the intersection of data &amp; web technology</h2>
           <p>I'm a passionate Computer Science student focused on building fast, secure, and user-centric web applications. My coursework and personal projects revolve around database architectures, algorithms, operating systems, and full-stack development.</p>
           <p>I'm currently looking to apply my technical stack in challenging software development environments, pairing data systems with thoughtful user interfaces.</p>
-          <p>From Kota to VIT, my focus has been steady: build things that are fast, secure, and a pleasure to use.</p>
+          <p>Alongside my degree, I've designed, built, and shipped three production-grade applications — NewsAtlas, Klipport, and Whispr — while maintaining a 9.08 CGPA.</p>
         </div>
         <div class="about-cards">
           <div class="info-card card">
@@ -405,10 +424,11 @@
                 <span>Render</span>
               </div>
               <div class="project-actions">
-                <a href="javascript:void(0)" class="project-btn primary-btn" aria-disabled="true" onclick="event.preventDefault()">
+                <button type="button" class="project-btn primary-btn" aria-disabled="true" aria-describedby="whispr-live-note" title="Live deployment coming soon">
                   <span>Visit Live Site</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
+                </button>
+                <span id="whispr-live-note" class="sr-only">Live deployment coming soon. Source code is available on GitHub.</span>
                 <a href="https://github.com/abhisheksati132/whispr" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
                   <span>Source Code</span>
                 </a>
@@ -418,6 +438,29 @@
 
         </div>
         <p class="projects-more">More experiments and repositories on <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+
+        <div class="github-stats">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=abhisheksati132&amp;show_icons=true&amp;hide_border=true&amp;bg_color=00000000&amp;title_color=F0EDE7&amp;icon_color=D97757&amp;text_color=A6A29A" />
+            <img src="https://github-readme-stats.vercel.app/api?username=abhisheksati132&amp;show_icons=true&amp;hide_border=true&amp;bg_color=00000000&amp;title_color=1F1E1D&amp;icon_color=D97757&amp;text_color=6B6862" alt="GitHub statistics for abhisheksati132: total stars, commits, pull requests, and issues" loading="lazy" decoding="async" width="450" height="195" />
+          </picture>
+        </div>
+
+        <!--
+          TESTIMONIALS TEMPLATE — uncomment and fill in once you have a quote:
+          <section class="testimonials" aria-label="Recommendations">
+            <blockquote class="testimonial card">
+              <p>"Quote from a professor, hackathon judge, or collaborator."</p>
+              <footer>&mdash; Name, Role (e.g., Prof. at VIT)</footer>
+            </blockquote>
+          </section>
+        -->
+        <!--
+          WRITING / BLOG TEMPLATE — add links once you publish posts:
+          <p class="projects-more">Read how I built these:
+            <a href="#">How Klipport does E2E encryption in the browser</a>
+          </p>
+        -->
       </div>
     </section>
 
@@ -462,23 +505,27 @@
           <p>Interested in collaborating on frontend development, full-stack systems, or data visualization pipelines? Send a note through the form, or reach out on any of my channels.</p>
           <div class="contact-details">
             <div class="contact-mail-wrapper">
-              <a class="contact-item contact-mail" href="mailto:Abhisheksativit@gmail.com">
+              <a class="contact-item contact-mail" href="mailto:abhisheksativit@gmail.com">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <span>Abhisheksativit@gmail.com</span>
+                <span>abhisheksativit@gmail.com</span>
               </a>
               <button class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address to clipboard" type="button" title="Copy email address">
                 <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 <span class="copy-tooltip">Copy</span>
               </button>
             </div>
+            <div class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Vellore, Tamil Nadu, India &middot; IST &middot; it's <span id="localTime">--:--</span> there now</span>
+            </div>
             <div class="social-links">
-              <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer me">
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer me">
                 <span>GitHub</span>
               </a>
-              <a href="https://www.instagram.com/satiabhishek" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/satiabhishek" target="_blank" rel="noopener noreferrer me">
                 <span>Instagram</span>
               </a>
             </div>
@@ -487,14 +534,14 @@
 
         <form class="contact-form card" id="contactForm" novalidate>
           <input type="hidden" name="access_key" value="0fac9bf3-baac-4516-8ebf-7a88caa1078b" />
-          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" />
           <div class="input-group">
             <label for="formName">Name</label>
-            <input type="text" id="formName" name="name" placeholder="Abhishek Sati" required />
+            <input type="text" id="formName" name="name" placeholder="Abhishek Sati" autocomplete="name" required />
           </div>
           <div class="input-group">
             <label for="formEmail">Email</label>
-            <input type="email" id="formEmail" name="email" placeholder="example@gmail.com" required />
+            <input type="email" id="formEmail" name="email" placeholder="example@gmail.com" autocomplete="email" spellcheck="false" required />
           </div>
           <div class="input-group">
             <label for="formMessage">Message</label>
@@ -503,6 +550,7 @@
           <button type="submit" class="button button-primary" id="submitBtn">
             <span id="submitBtnLabel">Send Message</span>
           </button>
+          <p class="form-note">Submissions are delivered securely via Web3Forms &mdash; your details are used only to reply.</p>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -511,14 +559,23 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Abhishek Sati. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>&copy; <span id="footerYear">2026</span> Abhishek Sati. Built with HTML, CSS &amp; JavaScript.</p>
+      <p class="kbd-hints" aria-hidden="true">
+        <kbd>T</kbd> theme &middot; <kbd>A</kbd> about &middot; <kbd>P</kbd> projects &middot; <kbd>C</kbd> contact &middot; <kbd>Ctrl</kbd><kbd>K</kbd> commands
+      </p>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
+  <button type="button" class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </button>
 
-  <script src="script.js"></script>
+  <!--
+    ANALYTICS — Vercel Web Analytics:
+    1. Enable Web Analytics in your Vercel project dashboard (Settings > Analytics)
+    2. Uncomment this tag:
+    <script defer src="/_vercel/insights/script.js"></script>
+  -->
+  <script src="script.js?v=20260824"></script>
 </body>
 </html>

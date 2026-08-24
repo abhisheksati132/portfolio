@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SITE_EMAIL = 'abhisheksativit@gmail.com';
 
   // --- Day / Night Theme Toggle ---
   const themeToggle = document.getElementById('themeToggle');
@@ -21,12 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeMeta) themeMeta.content = isDark ? '#262624' : '#FAF9F5';
   };
 
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    applyThemeIcon();
+  };
+
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const isDark = themeToggle.dataset.theme === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      applyThemeIcon();
+      const next = themeToggle.dataset.theme === 'dark' ? 'light' : 'dark';
+      if (!prefersReducedMotion && typeof document.startViewTransition === 'function') {
+        document.startViewTransition(() => setTheme(next));
+      } else {
+        setTheme(next);
+      }
     });
   }
 
@@ -76,6 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
       !menuToggle.contains(event.target)
     ) {
       closeMenu();
+    }
+  });
+
+  // Close mobile menu with Escape key and restore focus to the toggle
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && siteNav && siteNav.classList.contains('open')) {
+      closeMenu();
+      if (menuToggle) menuToggle.focus();
+    }
+  });
+
+  // Trap Tab focus inside the header while the mobile menu is open
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !siteNav || !siteNav.classList.contains('open')) return;
+    const themeBtn = document.getElementById('themeToggle');
+    const focusables = [themeBtn, menuToggle, ...siteNav.querySelectorAll('a')].filter(Boolean);
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
   });
 
@@ -140,6 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="toast-message">${message}</span>
     `;
 
+    // Cap stacked toasts so the container never overflows
+    while (toastContainer.children.length >= 4) {
+      toastContainer.firstElementChild.remove();
+    }
     toastContainer.appendChild(toast);
 
     // Trigger enter animation
@@ -168,6 +205,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const setFieldValidity = (field, invalid) => {
+    if (!field) return;
+    if (invalid) {
+      field.setAttribute('aria-invalid', 'true');
+    } else {
+      field.removeAttribute('aria-invalid');
+    }
+  };
+
+  const nameField = contactForm ? contactForm.querySelector('#formName') : null;
+  const emailField = contactForm ? contactForm.querySelector('#formEmail') : null;
+  const messageField = contactForm ? contactForm.querySelector('#formMessage') : null;
+
   if (contactForm) {
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -182,14 +232,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!name || !email || !message) {
         setStatus('Please fill in all the required fields.', 'var(--error)');
         showToast('Please fill in all the required fields.', 'error');
+        [nameField, emailField, messageField].forEach(f => setFieldValidity(f, !f || !f.value.trim()));
+        const firstInvalid = contactForm.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
       if (!emailRegex.test(email)) {
         setStatus('Please enter a valid email address.', 'var(--error)');
         showToast('Please enter a valid email address.', 'error');
+        setFieldValidity(nameField, false);
+        setFieldValidity(emailField, true);
+        setFieldValidity(messageField, false);
+        if (emailField) emailField.focus();
         return;
       }
+
+      setFieldValidity(nameField, false);
+      setFieldValidity(emailField, false);
+      setFieldValidity(messageField, false);
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -206,8 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setStatus('Message sent. Thank you for reaching out!', 'var(--success)');
         showToast('Message sent successfully. Thank you!', 'success');
-        contactForm.reset();
-      } catch (err) {
+        contactForm.reset();      } catch (err) {
         setStatus('Something went wrong. Please try again or email me directly.', 'var(--error)');
         showToast("Couldn't send the message. Please try again or email me directly.", 'error');
       } finally {
@@ -278,6 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // --- Dynamic Footer Year ---
+  const footerYear = document.getElementById('footerYear');
+  if (footerYear) footerYear.textContent = String(new Date().getFullYear());
+
   // --- Scroll-To-Top Button ---
   const scrollTopBtn = document.getElementById('scrollTopBtn');
   if (scrollTopBtn) {
@@ -298,7 +362,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (pos >= section.offsetTop) current = section.id;
     });
     navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+      const isActive = link.getAttribute('href') === `#${current}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   };
 
@@ -314,20 +384,51 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   updateActiveNav();
 
-  // --- Cursor Spotlight on Project Cards ---
+  // --- Cursor Spotlight + 3D Tilt on Project Cards ---
+  const enableTilt = !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches;
   document.querySelectorAll('.project-showcase').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mx', `${x}px`);
+      card.style.setProperty('--my', `${y}px`);
+      if (enableTilt) {
+        const px = x / rect.width - 0.5;
+        const py = y / rect.height - 0.5;
+        card.style.setProperty('--rx', `${(-py * 2.4).toFixed(2)}deg`);
+        card.style.setProperty('--ry', `${(px * 2.4).toFixed(2)}deg`);
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
     });
   });
+
+  // --- Local Time in Contact (IST) ---
+  const localTime = document.getElementById('localTime');
+  if (localTime) {
+    try {
+      const fmt = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Kolkata'
+      });
+      const tickClock = () => { localTime.textContent = fmt.format(new Date()); };
+      tickClock();
+      window.setInterval(tickClock, 30000);
+    } catch (e) {
+      localTime.textContent = '';
+    }
+  }
 
   // --- Copy Email to Clipboard ---
   const copyEmailBtn = document.getElementById('copyEmailBtn');
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', async () => {
-      const email = 'Abhisheksativit@gmail.com';
+      const email = SITE_EMAIL;
       try {
         await navigator.clipboard.writeText(email);
         showToast('Email address copied to clipboard!', 'success');
@@ -344,7 +445,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Keyboard Shortcuts Navigation ---
   document.addEventListener('keydown', (e) => {
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const active = document.activeElement;
+    if (active) {
+      const tag = active.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON' || tag === 'A') return;
+      if (active.isContentEditable) return;
+    }
     if (e.metaKey || e.ctrlKey || e.altKey) return;
 
     const key = e.key.toLowerCase();
@@ -358,4 +464,223 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('about')?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
   });
+
+  // --- Command Palette (Ctrl/Cmd + K) ---
+  const initCommandPalette = () => {
+    let palette = null;
+    let input = null;
+    let list = null;
+    let isOpen = false;
+    let activeIndex = 0;
+    let results = [];
+    let lastFocused = null;
+
+    const setBackgroundVisibility = (hidden) => {
+      ['.site-header', 'main', '.site-footer', '.scroll-top'].forEach((sel) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        if (hidden) el.setAttribute('aria-hidden', 'true');
+        else el.removeAttribute('aria-hidden');
+      });
+      document.body.classList.toggle('no-scroll', hidden);
+    };
+
+    const close = () => {
+      if (!isOpen || !palette) return;
+      palette.hidden = true;
+      palette.classList.remove('open');
+      isOpen = false;
+      setBackgroundVisibility(false);
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    };
+
+    const open = () => {
+      if (!palette) build();
+      lastFocused = document.activeElement;
+      palette.hidden = false;
+      palette.classList.add('open');
+      isOpen = true;
+      setBackgroundVisibility(true);
+      input.value = '';
+      renderList();
+      requestAnimationFrame(() => input.focus());
+    };
+
+    const scrollToSection = (id) => {
+      close();
+      document.getElementById(id)?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    };
+
+    const openUrl = (url) => {
+      window.open(url, '_blank', 'noopener');
+      close();
+    };
+
+    const copyEmail = async () => {
+      try {
+        await navigator.clipboard.writeText(SITE_EMAIL);
+        showToast('Email address copied to clipboard!', 'success');
+      } catch (err) {
+        showToast(`Email: ${SITE_EMAIL}`, 'success');
+      }
+      close();
+    };
+
+    const COMMANDS = [
+      { label: 'Go to Home', keywords: 'home top start hero', action: () => scrollToSection('home') },
+      { label: 'Go to About', keywords: 'about bio introduction', action: () => scrollToSection('about') },
+      { label: 'Go to Skills', keywords: 'skills expertise stack technologies', action: () => scrollToSection('skills') },
+      { label: 'Go to Projects', keywords: 'projects work portfolio case studies', action: () => scrollToSection('projects') },
+      { label: 'Go to Education', keywords: 'education academics university vit college', action: () => scrollToSection('education') },
+      { label: 'Go to Contact', keywords: 'contact email reach hire message form', action: () => scrollToSection('contact') },
+      { label: 'NewsAtlas — Live Site', keywords: 'newsatlas news atlas globe map dashboard demo open', action: () => openUrl('https://news-atlas-live.vercel.app/') },
+      { label: 'NewsAtlas — Source Code', keywords: 'newsatlas github source code repository', action: () => openUrl('https://github.com/abhisheksati132/newsatlaslive') },
+      { label: 'Klipport — Live Site', keywords: 'klipport clipboard sync demo open', action: () => openUrl('https://klipport.vercel.app') },
+      { label: 'Klipport — Source Code', keywords: 'klipport github source code repository', action: () => openUrl('https://github.com/abhisheksati132/klipport') },
+      { label: 'Whispr — Source Code', keywords: 'whispr messaging encrypted chat github source', action: () => openUrl('https://github.com/abhisheksati132/whispr') },
+      { label: 'Toggle Light / Dark Theme', keywords: 'theme dark light night mode appearance toggle switch', hint: 'T', action: () => { if (themeToggle) themeToggle.click(); close(); } },
+      { label: 'Copy Email Address', keywords: 'copy email clipboard mail contact', action: copyEmail },
+      { label: 'Open Resume (PDF)', keywords: 'resume cv pdf download', action: () => openUrl('assets/Abhishek_Sati_Resume.pdf') },
+      { label: 'GitHub Profile', keywords: 'github profile repositories code', action: () => openUrl('https://github.com/abhisheksati132') },
+      { label: 'LinkedIn Profile', keywords: 'linkedin profile network career', action: () => openUrl('https://www.linkedin.com/in/abhisheksati132') },
+      { label: 'Instagram Profile', keywords: 'instagram profile photos social', action: () => openUrl('https://www.instagram.com/satiabhishek') },
+      { label: 'Back to Top', keywords: 'back top scroll up home', action: () => { close(); window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }); } }
+    ];
+
+    const scoreCommand = (cmd, q) => {
+      const hay = `${cmd.label} ${cmd.keywords}`.toLowerCase();
+      if (!q) return 1;
+      const idx = hay.indexOf(q);
+      if (idx !== -1) return 100 - idx;
+      let i = 0;
+      for (const ch of hay) {
+        if (ch === q[i]) i++;
+        if (i === q.length) break;
+      }
+      return i === q.length ? 10 : -1;
+    };
+
+    const setActive = (index) => {
+      if (!results.length) return;
+      activeIndex = (index + results.length) % results.length;
+      list.querySelectorAll('.cmd-item').forEach((item, i) => {
+        item.setAttribute('aria-selected', String(i === activeIndex));
+        if (i === activeIndex) item.scrollIntoView({ block: 'nearest' });
+      });
+    };
+
+    const renderList = () => {
+      const q = input.value.trim().toLowerCase();
+      results = COMMANDS
+        .map(cmd => ({ cmd, s: scoreCommand(cmd, q) }))
+        .filter(r => r.s >= 0)
+        .sort((a, b) => b.s - a.s)
+        .map(r => r.cmd);
+
+      list.innerHTML = '';
+      if (!results.length) {
+        const li = document.createElement('li');
+        li.className = 'cmd-empty';
+        li.textContent = 'No matching commands';
+        list.appendChild(li);
+        return;
+      }
+      results.forEach((cmd, i) => {
+        const li = document.createElement('li');
+        li.className = 'cmd-item';
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', String(i === 0));
+        li.innerHTML = `<span>${cmd.label}</span>${cmd.hint ? `<kbd class="cmd-kbd">${cmd.hint}</kbd>` : ''}`;
+        li.addEventListener('click', () => cmd.action());
+        li.addEventListener('mousemove', () => setActive(i));
+        list.appendChild(li);
+      });
+      activeIndex = 0;
+    };
+
+    const build = () => {
+      palette = document.createElement('div');
+      palette.id = 'cmdPalette';
+      palette.className = 'cmd-palette';
+      palette.hidden = true;
+      palette.innerHTML = `
+        <div class="cmd-backdrop"></div>
+        <div class="cmd-dialog" role="dialog" aria-modal="true" aria-label="Command palette">
+          <div class="cmd-input-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="cmd-input" placeholder="Type a command or search..." autocomplete="off" spellcheck="false" aria-label="Search commands" />
+            <kbd class="cmd-kbd">Esc</kbd>
+          </div>
+          <ul class="cmd-list" role="listbox" aria-label="Commands"></ul>
+        </div>`;
+      document.body.appendChild(palette);
+      input = palette.querySelector('.cmd-input');
+      list = palette.querySelector('.cmd-list');
+
+      palette.querySelector('.cmd-backdrop').addEventListener('click', close);
+      palette.querySelector('.cmd-dialog').addEventListener('click', (e) => e.stopPropagation());
+      input.addEventListener('input', renderList);
+      input.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        e.preventDefault();
+        input.focus();
+      });
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (isOpen) { close(); } else { open(); }
+        return;
+      }
+      if (!isOpen) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        close();
+      } else if (e.key === 'ArrowDown' && results.length) {
+        e.preventDefault();
+        setActive(activeIndex + 1);
+      } else if (e.key === 'ArrowUp' && results.length) {
+        e.preventDefault();
+        setActive(activeIndex - 1);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (results[activeIndex]) results[activeIndex].action();
+      }
+    });
+  };
+
+  try {
+    initCommandPalette();
+  } catch (err) {
+    console.warn('Command palette failed to initialise:', err);
+  }
+
+  // --- GitHub Stats Embed: fail silently if third-party is down ---
+  const statsImg = document.querySelector('.github-stats img');
+  if (statsImg) {
+    statsImg.addEventListener('error', () => {
+      statsImg.closest('.github-stats')?.remove();
+    });
+  }
+
+  // --- Service Worker Registration ---
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then((reg) => {
+          reg.addEventListener('updatefound', () => {
+            const incoming = reg.installing;
+            if (!incoming) return;
+            incoming.addEventListener('statechange', () => {
+              if (incoming.state === 'activated' && navigator.serviceWorker.controller) {
+                showToast('Portfolio updated to the latest version.', 'success');
+              }
+            });
+          });
+        })
+        .catch((err) => console.warn('Service worker registration failed:', err));
+    });
+  }
 });
