@@ -54,6 +54,12 @@ requires relativizing those URLs first.
 
 `T` theme · `A` about · `P` projects · `C` contact · `Ctrl/Cmd + K` command palette
 
+## Writing
+
+Draft skeletons for planned technical posts live in `writing/`. Fill the checklist
+slots from the real codebases, publish, then uncomment the blog-links block in
+`index.html` and link the published URLs.
+
 ## Manual (dashboard) tasks
 
 - Enable **Vercel Web Analytics**, then uncomment the analytics tag near `</body>` in `index.html`.

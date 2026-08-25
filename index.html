@@ -332,6 +332,16 @@
               <p class="project-desc">
                 A global situational-awareness dashboard that aggregates and correlates news signals, regional economic data, weather reports, and stock markets on an interactive Mapbox globe. Uses Llama 3.3 via the Groq API to build instant geopolitical briefs for any clicked location.
               </p>
+              <details class="project-arch">
+                <summary>How it works — architecture</summary>
+                <ol class="arch-flow">
+                  <li><strong>React 19 SPA</strong> renders an interactive Mapbox GL JS globe; every country click is a query coordinate.</li>
+                  <li><strong>Vercel serverless functions</strong> fan out to live feeds — news wires, weather, markets — keeping API keys server-side.</li>
+                  <li>Feed responses are normalized and <strong>correlated per region</strong> into a single situational payload.</li>
+                  <li>The payload is sent to <strong>Groq (Llama 3.3)</strong>, which returns a structured geopolitical brief for that location.</li>
+                  <li>The brief renders over the globe as an <strong>installable PWA</strong> with offline shell caching.</li>
+                </ol>
+              </details>
               <ul class="project-impact">
                 <li>Correlates 4+ live data feeds per region on an interactive globe</li>
                 <li>Generates a 10-point AI brief for any clicked location</li>
@@ -370,6 +380,16 @@
               <p class="project-desc">
                 A secure cross-device clipboard and sync platform for real-time transfers of text, files, and images. Features browser-side end-to-end encryption (AES-GCM / PBKDF2) via the Web Crypto API, an offline service-worker cache, account-free WebSocket pairing with a 6-digit PIN, and serverless password and timer enforcement on stored data.
               </p>
+              <details class="project-arch">
+                <summary>How it works — architecture</summary>
+                <ol class="arch-flow">
+                  <li>Device A derives a key with <strong>PBKDF2</strong> and encrypts locally using <strong>AES-GCM</strong> (Web Crypto API) — plaintext never leaves the tab.</li>
+                  <li>A <strong>6-digit PIN</strong> pairs Device B over WebSocket; the server relays <strong>ciphertext only</strong>.</li>
+                  <li><strong>Node.js relay</strong> handles pairing and delivery; it cannot decrypt what it forwards.</li>
+                  <li><strong>Supabase</strong> stores ciphertext with server-enforced expiry timers and optional passwords.</li>
+                  <li>Device B decrypts in-browser; a <strong>service worker</strong> keeps received clips available offline.</li>
+                </ol>
+              </details>
               <ul class="project-impact">
                 <li>End-to-end encryption stays entirely in the browser</li>
                 <li>6-digit PIN pairing, no account required</li>
@@ -409,6 +429,16 @@
               <p class="project-desc">
                 An encrypted, real-time private messaging platform with full-duplex WebSocket communication, peer-to-peer WebRTC voice and video calls, and ephemeral disappearing media. Built on a zero-knowledge architecture — encryption never leaves the browser.
               </p>
+              <details class="project-arch">
+                <summary>How it works — architecture</summary>
+                <ol class="arch-flow">
+                  <li>Both peers derive shared keys client-side — <strong>zero-knowledge design</strong>, the server never sees keys or plaintext.</li>
+                  <li><strong>Socket.io</strong> carries signaling and message envelopes; payloads are AES-GCM encrypted before send.</li>
+                  <li>Voice/video runs <strong>peer-to-peer over WebRTC</strong> (DTLS-secured), bypassing the server entirely.</li>
+                  <li>Ephemeral media auto-expires — <strong>Supabase</strong> holds ciphertext until its timer lapses.</li>
+                  <li><strong>VAPID push notifications</strong> wake the offline-first PWA without exposing message content.</li>
+                </ol>
+              </details>
               <ul class="project-impact">
                 <li>Client-side zero-knowledge E2E encryption (AES-GCM / PBKDF2)</li>
                 <li>Peer-to-peer voice and video calls over WebRTC</li>
@@ -424,14 +454,10 @@
                 <span>Render</span>
               </div>
               <div class="project-actions">
-                <button type="button" class="project-btn primary-btn" aria-disabled="true" aria-describedby="whispr-live-note" title="Live deployment coming soon">
-                  <span>Visit Live Site</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </button>
-                <span id="whispr-live-note" class="sr-only">Live deployment coming soon. Source code is available on GitHub.</span>
                 <a href="https://github.com/abhisheksati132/whispr" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
                   <span>Source Code</span>
                 </a>
+                <span class="deploy-note">Public deployment in progress</span>
               </div>
             </div>
           </article>
@@ -456,9 +482,11 @@
           </section>
         -->
         <!--
-          WRITING / BLOG TEMPLATE — add links once you publish posts:
+          WRITING / BLOG — skeletons drafted in /writing/ (e2e-crypto-in-the-browser.md,
+          webgl-globe-live-data.md). Publish as HTML posts, then link them here:
           <p class="projects-more">Read how I built these:
-            <a href="#">How Klipport does E2E encryption in the browser</a>
+            <a href="#">E2E encryption in the browser without a backend you can trust</a> &middot;
+            <a href="#">Correlating live data feeds on a WebGL globe</a>
           </p>
         -->
       </div>

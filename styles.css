@@ -1064,6 +1064,76 @@ textarea:focus-visible {
   cursor: not-allowed;
 }
 
+.deploy-note {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Architecture flow (inside <details class="project-arch">) */
+.project-arch {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  padding: 0.75rem 1rem;
+}
+
+.project-arch summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  list-style-position: inside;
+}
+
+.project-arch[open] summary {
+  margin-bottom: 0.85rem;
+}
+
+.arch-flow {
+  counter-reset: arch;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.arch-flow li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.arch-flow li::before {
+  counter-increment: arch;
+  content: counter(arch);
+  flex-shrink: 0;
+  width: 1.35em;
+  height: 1.35em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+.arch-flow strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
 /* --- Education --- */
 .education-grid {
   display: grid;
