@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { label: 'Go to Education', keywords: 'education academics university vit college', action: () => scrollToSection('education') },
       { label: 'Go to Contact', keywords: 'contact email reach hire message form', action: () => scrollToSection('contact') },
       { label: 'NewsAtlas — Live Site', keywords: 'newsatlas news atlas globe map dashboard demo open', action: () => openUrl('https://news-atlas-live.vercel.app/') },
-      { label: 'NewsAtlas — Source Code', keywords: 'newsatlas github source code repository', action: () => openUrl('https://github.com/abhisheksati132/newsatlaslive') },
+      { label: 'NewsAtlas — Source Code', keywords: 'newsatlas github source code repository', action: () => openUrl('https://github.com/abhisheksati132/news-atlas-live') },
       { label: 'Klipport — Live Site', keywords: 'klipport clipboard sync demo open', action: () => openUrl('https://klipport.vercel.app') },
       { label: 'Klipport — Source Code', keywords: 'klipport github source code repository', action: () => openUrl('https://github.com/abhisheksati132/klipport') },
       { label: 'Whispr — Source Code', keywords: 'whispr messaging encrypted chat github source', action: () => openUrl('https://github.com/abhisheksati132/whispr') },
@@ -657,11 +657,21 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('Command palette failed to initialise:', err);
   }
 
-  // --- GitHub Stats Embed: fail silently if third-party is down ---
+  // --- GitHub Stats Embed: degrade to a text link if third-party is down ---
   const statsImg = document.querySelector('.github-stats img');
   if (statsImg) {
     statsImg.addEventListener('error', () => {
-      statsImg.closest('.github-stats')?.remove();
+      const wrap = statsImg.closest('.github-stats');
+      if (!wrap) return;
+      const fallback = document.createElement('p');
+      fallback.className = 'projects-more';
+      const link = document.createElement('a');
+      link.href = 'https://github.com/abhisheksati132';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'View activity on GitHub';
+      fallback.append('GitHub stats are temporarily unavailable — ', link, '.');
+      wrap.replaceWith(fallback);
     });
   }
 
