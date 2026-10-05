@@ -267,7 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setStatus('Message sent. Thank you for reaching out!', 'var(--success)');
         showToast('Message sent successfully. Thank you!', 'success');
-        contactForm.reset();      } catch (err) {
+        contactForm.reset();
+      } catch (err) {
         setStatus('Something went wrong. Please try again or email me directly.', 'var(--error)');
         showToast("Couldn't send the message. Please try again or email me directly.", 'error');
       } finally {
@@ -413,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const fmt = new Intl.DateTimeFormat('en-GB', {
         hour: '2-digit',
         minute: '2-digit',
-        hour12: false,
+        hourCycle: 'h23',
         timeZone: 'Asia/Kolkata'
       });
       const tickClock = () => { localTime.textContent = fmt.format(new Date()); };
@@ -428,9 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyEmailBtn = document.getElementById('copyEmailBtn');
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', async () => {
-      const email = SITE_EMAIL;
       try {
-        await navigator.clipboard.writeText(email);
+        await navigator.clipboard.writeText(SITE_EMAIL);
         showToast('Email address copied to clipboard!', 'success');
         const tooltip = copyEmailBtn.querySelector('.copy-tooltip');
         if (tooltip) tooltip.textContent = 'Copied!';
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (tooltip) tooltip.textContent = 'Copy';
         }, 2000);
       } catch (err) {
-        showToast(`Email: ${email}`, 'success');
+        showToast(`Email: ${SITE_EMAIL}`, 'success');
       }
     });
   }

@@ -1059,11 +1059,6 @@ textarea:focus-visible {
   border-color: var(--text-muted);
 }
 
-.project-btn[aria-disabled="true"] {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
 .deploy-note {
   display: inline-flex;
   align-items: center;
@@ -1671,6 +1666,7 @@ body.no-scroll {
     gap: 1.1rem;
     display: flex;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-6px);
     transition: var(--transition);
@@ -1678,6 +1674,7 @@ body.no-scroll {
 
   .site-nav.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
   }

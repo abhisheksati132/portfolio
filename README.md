@@ -35,9 +35,10 @@ node tools/check-csp.mjs
 - **Cache-busting:** when you change `styles.css` or `script.js`, bump the `?v=YYYYMMDD`
   query string in both `index.html` and `404.html`, AND update the matching paths in
   `sw.js` PRECACHE. Bump `VERSION` in `sw.js` so old caches are purged.
-- **Inline scripts:** the head theme-init script is hashed into the CSP in `vercel.json`.
-  If you edit it, recompute the hash and update both places — `tools/check-csp.mjs`
-  (run by CI) will fail loudly if they drift.
+- **Inline scripts:** the theme-init scripts in `index.html` and `404.html` are
+  hashed into the CSP in `vercel.json`. If you edit either, recompute its hash
+  and update both places — `tools/check-csp.mjs` (run by CI) will fail loudly
+  if they drift.
 - **Icons:** regenerate with `powershell -ExecutionPolicy Bypass -File tools/generate-icons.ps1`.
   Colors are hardcoded there to match `:root` design tokens.
 - **Design tokens:** warm editorial system — bg `#FAF9F5`, surface `#FFFFFF`,

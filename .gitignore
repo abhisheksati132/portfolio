@@ -14,5 +14,9 @@ dist/
 # Logs
 *.log
 
+# Secrets (none today, but never commit them)
+.env
+.env.*
+
 # Vercel local state
 .vercel
