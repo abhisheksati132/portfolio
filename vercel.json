@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-g2aUnjMYhf8WqU9f57NQhnRZjddwd3NbrnTlKyFM/30=' 'sha256-ig26+DuKGK3nRpHFRBRKdPQvH2m+EjbPuH4YviCC7hs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://github-readme-stats.vercel.app; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; form-action 'self' https://api.web3forms.com; base-uri 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-2oKOhhfnHucCKXd/YKsj6pCB3sU2Bt4+A2+ImL9xzh8=' 'sha256-ig26+DuKGK3nRpHFRBRKdPQvH2m+EjbPuH4YviCC7hs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://github-readme-stats.vercel.app; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; form-action 'self' https://api.web3forms.com; base-uri 'self'; upgrade-insecure-requests"
         },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
