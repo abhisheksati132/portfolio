@@ -3,15 +3,15 @@
  * Offline-first caching: precache shell, stale-while-revalidate assets,
  * network-first navigations with offline fallbacks.
  */
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE_NAME = `portfolio-${VERSION}`;
 
 const PRECACHE = [
   '/',
   '/index.html',
   '/404.html',
-  '/styles.css?v=20260824',
-  '/script.js?v=20260824',
+  '/styles.css?v=20261006',
+  '/script.js?v=20261006',
   '/manifest.webmanifest',
   '/robots.txt',
   '/sitemap.xml',
@@ -59,48 +59,33 @@ self.addEventListener('fetch', (event) => {
             cache.put(request, response.clone());
           }
           return response;
-        } catch (err) {
-          return cached;
+        } catch (e) {
+          return cached || Response.error();
         }
       })
     );
     return;
   }
 
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-
-  // Navigations: network-first, fall back to cache, then 404 page
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          }
-          return response;
-        })
-        .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match('/404.html'))
-        )
-    );
-    return;
-  }
-
-  // Static assets: stale-while-revalidate
+  // Precached static shell
   event.respondWith(
     caches.match(request).then((cached) => {
-      const network = fetch(request)
+      if (cached) return cached;
+      return fetch(request)
         .then((response) => {
-          if (response && response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
           }
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return response;
         })
-        .catch(() => cached);
-      return cached || network;
+        .catch(() => {
+          if (request.mode === 'navigate') {
+            return caches.match('/404.html');
+          }
+          return Response.error();
+        });
     })
   );
 });

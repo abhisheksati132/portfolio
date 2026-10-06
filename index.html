@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary Meta Tags -->
   <title>Abhishek Sati | CSE Undergrad &amp; Developer Portfolio</title>
-  <meta name="title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
-  <meta name="description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
-  <meta name="keywords" content="Abhishek Sati, Portfolio, VIT, CSE, Data Science, Web Developer, NewsAtlas, Klipport, React, Node.js" />
+  <meta name="title" content="Abhishek Sati | CSE Undergrad &amp; Developer Portfolio" />
+  <meta name="description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas, Klipport, and Whispr." />
+  <meta name="keywords" content="Abhishek Sati, Portfolio, VIT, CSE, Data Science, Web Developer, NewsAtlas, Klipport, Whispr, React, Node.js, Web Crypto, WebRTC" />
   <meta name="author" content="Abhishek Sati" />
-  <meta name="theme-color" content="#FAF9F5" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="color-scheme" content="dark light" />
   <script>
     (function () {
       try {
         var t = localStorage.getItem('theme');
         if (t === 'dark' || t === 'light') {
           document.documentElement.setAttribute('data-theme', t);
-          document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#262624' : '#FAF9F5';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.content = t === 'dark' ? '#09090b' : '#f8f8fa';
         }
       } catch (e) {}
     })();
@@ -26,21 +27,21 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
-  <meta property="og:description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas and Klipport." />
+  <meta property="og:title" content="Abhishek Sati | CSE Undergrad &amp; Developer Portfolio" />
+  <meta property="og:description" content="Portfolio of Abhishek Sati, B.Tech Computer Science (Data Science) undergraduate at Vellore Institute of Technology (VIT). Developer of NewsAtlas, Klipport, and Whispr." />
   <link rel="canonical" href="https://abhisheksati.vercel.app/" />
   <meta property="og:image" content="https://abhisheksati.vercel.app/assets/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Abhishek Sati - Developer Portfolio" />
   <meta property="og:url" content="https://abhisheksati.vercel.app" />
-  <meta property="og:site_name" content="Abhishek Sati — Portfolio" />
+  <meta property="og:site_name" content="Abhishek Sati | Portfolio" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Abhishek Sati | CSE Undergrad & Developer Portfolio" />
-  <meta name="twitter:description" content="CSE (Data Science) undergrad building real-time data systems & secure software. Developer of NewsAtlas and Klipport." />
+  <meta name="twitter:title" content="Abhishek Sati | CSE Undergrad &amp; Developer Portfolio" />
+  <meta name="twitter:description" content="CSE (Data Science) undergrad building real-time data systems and secure software. Developer of NewsAtlas, Klipport, and Whispr." />
   <meta name="twitter:image" content="https://abhisheksati.vercel.app/assets/og-card.png" />
 
   <!-- Structured Data -->
@@ -55,7 +56,7 @@
       "@type": "CollegeOrUniversity",
       "name": "Vellore Institute of Technology"
     },
-    "knowsAbout": ["React", "Node.js", "Supabase", "Mapbox GL JS", "Web Crypto API", "PostgreSQL", "MongoDB"],
+    "knowsAbout": ["React", "Node.js", "Supabase", "Mapbox GL JS", "Web Crypto API", "WebRTC", "PostgreSQL", "Tailwind CSS"],
     "sameAs": [
       "https://www.linkedin.com/in/abhisheksati132",
       "https://github.com/abhisheksati132",
@@ -67,544 +68,696 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Abhishek Sati — Portfolio",
+    "name": "Abhishek Sati | Portfolio",
     "url": "https://abhisheksati.vercel.app/",
     "author": { "@type": "Person", "name": "Abhishek Sati" },
     "inLanguage": "en"
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Geist & Geist Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>@media(prefers-color-scheme:dark){rect{fill:%23262624}}</style><rect width='100' height='100' rx='20' fill='%23FAF9F5'/><text x='50%' y='65%' font-size='50' font-family='monospace' font-weight='bold' fill='%23D97757' text-anchor='middle'>&lt;/&gt;</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2309090b'/><text x='50%' y='63%' font-size='44' font-family='monospace' font-weight='bold' fill='%23ff5500' text-anchor='middle'>AS</text></svg>" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
 
-  <!-- Preconnect to external embed origin -->
-  <link rel="preconnect" href="https://github-readme-stats.vercel.app" />
-  <link rel="dns-prefetch" href="https://github-readme-stats.vercel.app" />
-
-  <link rel="stylesheet" href="styles.css?v=20260824" />
+  <link rel="stylesheet" href="styles.css?v=20261006" />
 </head>
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Ambient warm glows -->
-  <div class="ambient" aria-hidden="true">
-    <div class="ambient-blob blob-a"></div>
-    <div class="ambient-blob blob-b"></div>
-    <div class="ambient-blob blob-c"></div>
-  </div>
+  <!-- Top Sentinel for IntersectionObserver header elevation & scroll-to-top toggle -->
+  <div id="topSentinel" class="top-sentinel" aria-hidden="true"></div>
 
-  <!-- Scroll Progress -->
+  <!-- Scroll Progress Bar (CSS scroll-driven with fallback) -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <header class="site-header">
+  <!-- Systematic Background Matrix Grid -->
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="#home" class="brand">
-        <span class="logo-symbol">&lt;/&gt;</span>
-        <span class="logo-text">Abhishek Sati</span>
+      <a href="#home" class="brand" aria-label="Abhishek Sati homepage">
+        <span class="brand-monogram">AS</span>
+        <span class="brand-name">Abhishek Sati</span>
       </a>
+
       <div class="header-right">
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode" aria-pressed="false">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        </button>
-        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="site-nav" id="siteNav">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+        <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#education" class="nav-link">Academics</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="/studio.html" class="nav-studio-badge" title="Launch 3D CRT Workstation Experience">
+            <span class="pulse-indicator" aria-hidden="true"></span>
+            <span>3D Studio</span>
+          </a>
         </nav>
+
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode" aria-pressed="true">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+
+        <button type="button" class="cmd-trigger-btn" id="cmdTriggerBtn" aria-label="Open Command Palette" title="Command Palette (Ctrl+K)">
+          <span class="cmd-symbol" aria-hidden="true">⌘</span>
+          <span class="cmd-key" aria-hidden="true">K</span>
+        </button>
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="container hero-content">
-        <span class="hero-mono" aria-hidden="true">AS</span>
-        <div class="badge-container">
-          <span class="hero-badge"><span class="status-dot" aria-hidden="true"></span>Open for opportunities</span>
+    <!-- Hero Section (Viewport-Contained, strict <=20 word subtext, <=2 line headline) -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        
+        <div class="hero-status-pill">
+          <span class="status-pulse-dot" aria-hidden="true"></span>
+          <span>Open for Software Roles · Summer 2027</span>
         </div>
-        <p class="eyebrow">Computer Science Undergrad</p>
-        <h1>Building real-time data systems and secure, <span class="grad-accent">human-centered</span> software.</h1>
+
+        <h1 class="hero-title">
+          Building real-time data systems and secure distributed tools.
+        </h1>
+
         <p class="hero-subtext">
-          I'm a 3rd Year B.Tech Computer Science (Data Science) student at <strong>Vellore Institute Of Technology (VIT)</strong>. I build highly interactive, real-time web solutions and secure cross-device systems — with an eye for calm, readable interfaces. Open to software development internships and full-stack roles for Summer 2027.
+          CSE undergrad at VIT Vellore. Architecting client-side encryption, WebRTC mesh pipelines, and geospatial intelligence interfaces.
         </p>
+
         <div class="hero-actions">
-          <a class="button button-primary" href="#projects">
-            <span>View My Work</span>
+          <a class="btn btn-primary" href="#projects">
+            <span>Explore Projects</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <a class="button button-secondary" href="#contact">Get In Touch</a>
-          <a class="button button-ghost" href="assets/Abhishek_Sati_Resume.pdf" target="_blank" rel="noopener" type="application/pdf">
-            <span>Resume</span>
+          <a class="btn btn-secondary" href="#contact">
+            <span>Send Message</span>
+          </a>
+          <a class="btn btn-ghost" href="assets/Abhishek_Sati_Resume.pdf" target="_blank" rel="noopener" type="application/pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Resume (PDF)</span>
           </a>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-value" data-count="9.08" data-decimals="2">0</span>
-            <span class="stat-label">CGPA</span>
+        <!-- Telemetry & Credentials Strip -->
+        <div class="hero-telemetry" aria-label="Key engineering metrics">
+          <div class="telemetry-item">
+            <span class="telemetry-value" data-count="9.08" data-decimals="2">9.08</span>
+            <span class="telemetry-label">VIT CGPA</span>
           </div>
-          <div class="stat">
-            <span class="stat-value" data-count="3" data-pad="2">00</span>
-            <span class="stat-label">Major Projects</span>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-value" data-count="3" data-pad="2">03</span>
+            <span class="telemetry-label">Shipped Systems</span>
           </div>
-          <div class="stat">
-            <span class="stat-value" data-count="8" data-pad="2">00</span>
-            <span class="stat-label">Core Tech Stacks</span>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-value">2028</span>
+            <span class="telemetry-label">B.Tech Cohort</span>
+          </div>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item telemetry-geo">
+            <span class="telemetry-value mono-small">Vellore, IN</span>
+            <span class="telemetry-label">IST Timezone</span>
           </div>
         </div>
 
-        <p class="current-note">
-          <span class="current-dot" aria-hidden="true"></span>
-          Currently exploring geospatial data tools and end-to-end encrypted sync.
-        </p>
       </div>
     </section>
 
-    <!-- Skill Marquee -->
-    <div class="skill-marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>React 19</span>
-        <span>Node.js</span>
-        <span>Supabase</span>
-        <span>Mapbox GL JS</span>
-        <span>Tailwind CSS v4</span>
-        <span>Socket.io</span>
-        <span>Web Crypto API</span>
-        <span>PostgreSQL</span>
-        <span>MongoDB</span>
-        <span>Vercel</span>
-        <span>React 19</span>
-        <span>Node.js</span>
-        <span>Supabase</span>
-        <span>Mapbox GL JS</span>
-        <span>Tailwind CSS v4</span>
-        <span>Socket.io</span>
-        <span>Web Crypto API</span>
-        <span>PostgreSQL</span>
-        <span>MongoDB</span>
-        <span>Vercel</span>
+    <!-- Technical Ticker (Single clean technical marquee) -->
+    <div class="tech-ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">React 19</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Node.js</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Web Crypto API</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Mapbox GL JS</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">WebRTC Mesh</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Tailwind CSS v4</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Socket.io</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Supabase</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">PostgreSQL</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">C++</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Python</span>
+        <span class="ticker-dot">/</span>
+        <!-- Repeated for seamless loop -->
+        <span class="ticker-item">React 19</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Node.js</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Web Crypto API</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Mapbox GL JS</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">WebRTC Mesh</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Tailwind CSS v4</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Socket.io</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Supabase</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">PostgreSQL</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">C++</span>
+        <span class="ticker-dot">/</span>
+        <span class="ticker-item">Python</span>
+        <span class="ticker-dot">/</span>
       </div>
     </div>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-      <div class="container section-grid">
-        <div class="about-info">
-          <p class="section-label">01 — About</p>
-          <h2>Crafting solutions at the intersection of data &amp; web technology</h2>
-          <p>I'm a passionate Computer Science student focused on building fast, secure, and user-centric web applications. My coursework and personal projects revolve around database architectures, algorithms, operating systems, and full-stack development.</p>
-          <p>I'm currently looking to apply my technical stack in challenging software development environments, pairing data systems with thoughtful user interfaces.</p>
-          <p>Alongside my degree, I've designed, built, and shipped three production-grade applications — NewsAtlas, Klipport, and Whispr — while maintaining a 9.08 CGPA.</p>
-        </div>
-        <div class="about-cards">
-          <div class="info-card card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-            </div>
-            <h3>Education</h3>
-            <p class="card-highlight">B.Tech. CSE (Data Science)</p>
-            <p>Vellore Institute Of Technology, 3rd Year</p>
-            <span class="chip">CGPA: 9.08 / 10</span>
-          </div>
-          <div class="info-card card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            </div>
-            <h3>Core Interests</h3>
-            <p>Full-stack web architecture, client-side cryptography, data visualization, real-time telemetry, and competitive programming.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section section-alt" id="skills">
+    <!-- About Section (Clean vertical hierarchy, Split-Header Ban honored) -->
+    <section class="site-section" id="about">
       <div class="container">
-        <p class="section-label">02 — Expertise</p>
-        <h2>My technical arsenal</h2>
-        <div class="skills-grid">
-
-          <div class="skill-card card">
-            <div class="skill-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              <h3>Frontend</h3>
-            </div>
-            <div class="skill-tags">
-              <span>HTML5 &amp; CSS3</span>
-              <span>JavaScript (ES6+)</span>
-              <span>React 19</span>
-              <span>Tailwind CSS v4</span>
-              <span>Mapbox GL JS</span>
-            </div>
-          </div>
-
-          <div class="skill-card card">
-            <div class="skill-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-              <h3>Backend</h3>
-            </div>
-            <div class="skill-tags">
-              <span>Node.js</span>
-              <span>Express.js</span>
-              <span>Socket.io</span>
-              <span>RESTful APIs</span>
-              <span>Serverless Functions</span>
-            </div>
-          </div>
-
-          <div class="skill-card card">
-            <div class="skill-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
-              <h3>Databases &amp; Cloud</h3>
-            </div>
-            <div class="skill-tags">
-              <span>Supabase</span>
-              <span>PostgreSQL</span>
-              <span>MongoDB</span>
-              <span>Vercel</span>
-            </div>
-          </div>
-
-          <div class="skill-card card">
-            <div class="skill-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              <h3>Languages</h3>
-            </div>
-            <div class="skill-tags">
-              <span>C++</span>
-              <span>Python</span>
-              <span>Java</span>
-            </div>
-          </div>
-
-          <div class="skill-card card">
-            <div class="skill-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-              <h3>Security &amp; Tools</h3>
-            </div>
-            <div class="skill-tags">
-              <span>E2E Encryption</span>
-              <span>Git &amp; GitHub</span>
-              <span>Linux</span>
-              <span>VS Code</span>
-              <span>Jupyter Notebook</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-      <div class="container">
-        <p class="section-label">03 — Selected Work</p>
-        <h2>Projects</h2>
-        <div class="project-list">
-
-          <!-- Project 1: NewsAtlas -->
-          <article class="project-showcase card">
-            <div class="project-img-container">
-              <picture>
-                <source srcset="assets/news_atlas-560.webp 560w, assets/news_atlas-800.webp 800w, assets/news_atlas.webp 1000w" sizes="(max-width: 992px) calc(100vw - 3rem), 550px" type="image/webp" />
-                <img src="assets/news_atlas.jpg" alt="NewsAtlas intelligence terminal on an interactive globe" loading="lazy" decoding="async" width="1000" height="558" />
-              </picture>
-            </div>
-            <div class="project-details">
-              <span class="project-meta-category">Geospatial Data Dashboard</span>
-              <h3>NewsAtlas Intelligence Terminal</h3>
-              <p class="project-desc">
-                A global situational-awareness dashboard that aggregates and correlates news signals, regional economic data, weather reports, and stock markets on an interactive Mapbox globe. Uses Llama 3.3 via the Groq API to build instant geopolitical briefs for any clicked location.
-              </p>
-              <details class="project-arch">
-                <summary>How it works — architecture</summary>
-                <ol class="arch-flow">
-                  <li><strong>React 19 SPA</strong> renders an interactive Mapbox GL JS globe; every country click is a query coordinate.</li>
-                  <li><strong>Vercel serverless functions</strong> fan out to live feeds — news wires, weather, markets — keeping API keys server-side.</li>
-                  <li>Feed responses are normalized and <strong>correlated per region</strong> into a single situational payload.</li>
-                  <li>The payload is sent to <strong>Groq (Llama 3.3)</strong>, which returns a structured geopolitical brief for that location.</li>
-                  <li>The brief renders over the globe as an <strong>installable PWA</strong> with offline shell caching.</li>
-                </ol>
-              </details>
-              <ul class="project-impact">
-                <li>Correlates 4+ live data feeds per region on an interactive globe</li>
-                <li>Generates a 10-point AI brief for any clicked location</li>
-                <li>Rendered as an installable, fast-loading PWA</li>
-              </ul>
-              <div class="project-tech-badges">
-                <span>Mapbox GL JS</span>
-                <span>React 19</span>
-                <span>Groq AI (Llama 3.3)</span>
-                <span>Vercel Serverless</span>
-                <span>Vite</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://news-atlas-live.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-btn primary-btn">
-                  <span>Visit Live Site</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-                <a href="https://github.com/abhisheksati132/news-atlas-live" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
-                  <span>Source Code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 2: Klipport -->
-          <article class="project-showcase card reversed">
-            <div class="project-img-container">
-              <picture>
-                <source srcset="assets/klipport-560.webp 560w, assets/klipport-800.webp 800w, assets/klipport.webp 1000w" sizes="(max-width: 992px) calc(100vw - 3rem), 550px" type="image/webp" />
-                <img src="assets/klipport.jpg" alt="Klipport secure clipboard PWA pairing interface" loading="lazy" decoding="async" width="1000" height="558" />
-              </picture>
-            </div>
-            <div class="project-details">
-              <span class="project-meta-category">Secure Cross-Device Sync &amp; PWA</span>
-              <h3>Klipport Universal Clipboard</h3>
-              <p class="project-desc">
-                A secure cross-device clipboard and sync platform for real-time transfers of text, files, and images. Features browser-side end-to-end encryption (AES-GCM / PBKDF2) via the Web Crypto API, an offline service-worker cache, account-free WebSocket pairing with a 6-digit PIN, and serverless password and timer enforcement on stored data.
-              </p>
-              <details class="project-arch">
-                <summary>How it works — architecture</summary>
-                <ol class="arch-flow">
-                  <li>Device A derives a key with <strong>PBKDF2</strong> and encrypts locally using <strong>AES-GCM</strong> (Web Crypto API) — plaintext never leaves the tab.</li>
-                  <li>A <strong>6-digit PIN</strong> pairs Device B over WebSocket; the server relays <strong>ciphertext only</strong>.</li>
-                  <li><strong>Node.js relay</strong> handles pairing and delivery; it cannot decrypt what it forwards.</li>
-                  <li><strong>Supabase</strong> stores ciphertext with server-enforced expiry timers and optional passwords.</li>
-                  <li>Device B decrypts in-browser; a <strong>service worker</strong> keeps received clips available offline.</li>
-                </ol>
-              </details>
-              <ul class="project-impact">
-                <li>End-to-end encryption stays entirely in the browser</li>
-                <li>6-digit PIN pairing, no account required</li>
-                <li>Works offline as an installable PWA</li>
-              </ul>
-              <div class="project-tech-badges">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>Supabase</span>
-                <span>Socket.io</span>
-                <span>Web Crypto API</span>
-                <span>Tailwind v4</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://klipport.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn primary-btn">
-                  <span>Visit Live Site</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-<a href="https://github.com/abhisheksati132/klipport" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
-                  <span>Source Code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3: Whispr -->
-          <article class="project-showcase card">
-            <div class="project-img-container">
-              <picture>
-                <source srcset="assets/whispr-560.webp 560w, assets/whispr-800.webp 800w, assets/whispr.webp 1000w" sizes="(max-width: 992px) calc(100vw - 3rem), 550px" type="image/webp" />
-                <img src="assets/whispr.jpg" alt="Whispr encrypted real-time messaging PWA interface" loading="lazy" decoding="async" width="1000" height="558" />
-              </picture>
-            </div>
-            <div class="project-details">
-              <span class="project-meta-category">Real-Time Encrypted Messaging &amp; PWA</span>
-              <h3>Whispr</h3>
-              <p class="project-desc">
-                An encrypted, real-time private messaging platform with full-duplex WebSocket communication, peer-to-peer WebRTC voice and video calls, and ephemeral disappearing media. Built on a zero-knowledge architecture — encryption never leaves the browser.
-              </p>
-              <details class="project-arch">
-                <summary>How it works — architecture</summary>
-                <ol class="arch-flow">
-                  <li>Both peers derive shared keys client-side — <strong>zero-knowledge design</strong>, the server never sees keys or plaintext.</li>
-                  <li><strong>Socket.io</strong> carries signaling and message envelopes; payloads are AES-GCM encrypted before send.</li>
-                  <li>Voice/video runs <strong>peer-to-peer over WebRTC</strong> (DTLS-secured), bypassing the server entirely.</li>
-                  <li>Ephemeral media auto-expires — <strong>Supabase</strong> holds ciphertext until its timer lapses.</li>
-                  <li><strong>VAPID push notifications</strong> wake the offline-first PWA without exposing message content.</li>
-                </ol>
-              </details>
-              <ul class="project-impact">
-                <li>Client-side zero-knowledge E2E encryption (AES-GCM / PBKDF2)</li>
-                <li>Peer-to-peer voice and video calls over WebRTC</li>
-                <li>Offline-first PWA with VAPID push notifications</li>
-              </ul>
-              <div class="project-tech-badges">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>Socket.io</span>
-                <span>WebRTC</span>
-                <span>Supabase</span>
-                <span>Web Crypto API</span>
-                <span>Render</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/abhisheksati132/whispr" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
-                  <span>Source Code</span>
-                </a>
-                <span class="deploy-note">Public deployment in progress</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-        <p class="projects-more">More experiments and repositories on <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
-
-        <div class="github-stats">
-          <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=abhisheksati132&amp;show_icons=true&amp;hide_border=true&amp;bg_color=00000000&amp;title_color=F0EDE7&amp;icon_color=D97757&amp;text_color=A6A29A" />
-            <img src="https://github-readme-stats.vercel.app/api?username=abhisheksati132&amp;show_icons=true&amp;hide_border=true&amp;bg_color=00000000&amp;title_color=1F1E1D&amp;icon_color=D97757&amp;text_color=6B6862" alt="GitHub statistics for abhisheksati132: total stars, commits, pull requests, and issues" loading="lazy" decoding="async" width="450" height="195" />
-          </picture>
-        </div>
-
-        <!--
-          TESTIMONIALS TEMPLATE — uncomment and fill in once you have a quote:
-          <section class="testimonials" aria-label="Recommendations">
-            <blockquote class="testimonial card">
-              <p>"Quote from a professor, hackathon judge, or collaborator."</p>
-              <footer>&mdash; Name, Role (e.g., Prof. at VIT)</footer>
-            </blockquote>
-          </section>
-        -->
-        <!--
-          WRITING / BLOG — skeletons drafted in /writing/ (e2e-crypto-in-the-browser.md,
-          webgl-globe-live-data.md). Publish as HTML posts, then link them here:
-          <p class="projects-more">Read how I built these:
-            <a href="#">E2E encryption in the browser without a backend you can trust</a> &middot;
-            <a href="#">Correlating live data feeds on a WebGL globe</a>
+        
+        <div class="section-heading-block">
+          <h2 class="section-title">Architecting software where data density meets human clarity</h2>
+          <p class="section-lead">
+            I am a Computer Science student at Vellore Institute of Technology specializing in Data Science. My work connects systems-level engineering with high-speed web interfaces: writing zero-knowledge cryptographic pipelines, geospatial feeds, and low-latency WebSockets.
           </p>
-        -->
+        </div>
+
+        <div class="about-grid">
+          <div class="panel-card about-card">
+            <div class="panel-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+            </div>
+            <h3 class="panel-title">Academic Foundation</h3>
+            <p class="panel-desc">
+              Rigorous grounding in Data Structures, Relational Database Internals, Operating Systems, Computer Networks, and Discrete Mathematics at VIT Vellore.
+            </p>
+            <div class="metric-badge">
+              <span class="badge-label">VIT Cumulative Grade:</span>
+              <span class="badge-num">9.08 / 10.0</span>
+            </div>
+          </div>
+
+          <div class="panel-card about-card">
+            <div class="panel-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="panel-title">Systems &amp; Architecture Focus</h3>
+            <p class="panel-desc">
+              Building full-stack web software with verified zero-knowledge privacy, in-browser cryptographic primitives (AES-GCM/PBKDF2), and peer-to-peer media topologies.
+            </p>
+            <div class="tech-stack-row">
+              <span class="tech-chip">Zero-Knowledge</span>
+              <span class="tech-chip">P2P WebRTC</span>
+              <span class="tech-chip">Geospatial</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section (Asymmetric Bento Grid: 1 Hero Wide Tile + 2 Split Tiles) -->
+    <section class="site-section section-elevated" id="projects">
+      <div class="container">
+        
+        <div class="section-heading-block">
+          <h2 class="section-title">Selected Engineering Projects</h2>
+          <p class="section-lead">
+            Production-grade systems designed and shipped from ground zero, emphasizing security, performance, and real-time interaction.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+
+          <!-- Bento Tile 1: NewsAtlas (Hero Wide Tile) -->
+          <article class="bento-card bento-hero-tile">
+            <div class="bento-media-frame">
+              <picture>
+                <source srcset="assets/news_atlas-560.webp 560w, assets/news_atlas-800.webp 800w, assets/news_atlas.webp 1000w" sizes="(max-width: 900px) 100vw, 580px" type="image/webp" />
+                <img src="assets/news_atlas.jpg" alt="NewsAtlas intelligence terminal on an interactive 3D globe" class="bento-img" loading="lazy" decoding="async" width="1000" height="558" />
+              </picture>
+              <div class="media-overlay-tag">
+                <span class="tag-live-dot" aria-hidden="true"></span>
+                <span>Live Feed Active</span>
+              </div>
+            </div>
+
+            <div class="bento-content">
+              <div class="bento-meta">Geospatial Intelligence Terminal</div>
+              <h3 class="bento-title">NewsAtlas Intelligence Terminal</h3>
+              <p class="bento-desc">
+                Global situational awareness dashboard that aggregates and correlates live news wires, macroeconomic indicators, weather systems, and stock indices onto an interactive Mapbox globe. Powered by Llama 3.3 via Groq for instant geopolitical synthesis upon selecting any territory.
+              </p>
+
+              <details class="tech-details-accordion">
+                <summary class="accordion-trigger">
+                  <span>Architecture &amp; Pipeline</span>
+                  <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="accordion-body">
+                  <ol class="pipeline-list">
+                    <li><strong>React 19 SPA:</strong> Interactively projects Mapbox GL JS 3D coordinates.</li>
+                    <li><strong>Vercel Serverless Fanout:</strong> Queries authenticated news and market APIs with server-side secrets.</li>
+                    <li><strong>Regional Normalization:</strong> Collates and weights feeds into structured contextual payloads.</li>
+                    <li><strong>Groq AI (Llama 3.3):</strong> Generates localized intelligence summaries with sub-second latency.</li>
+                  </ol>
+                </div>
+              </details>
+
+              <div class="bento-tags">
+                <span class="code-tag">Mapbox GL JS</span>
+                <span class="code-tag">React 19</span>
+                <span class="code-tag">Groq AI</span>
+                <span class="code-tag">Vercel Edge</span>
+                <span class="code-tag">PWA</span>
+              </div>
+
+              <div class="bento-actions">
+                <a href="https://news-atlas-live.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Visit Live Site</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://github.com/abhisheksati132/news-atlas-live" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bento Tile 2: Klipport (Split Tile) -->
+          <article class="bento-card bento-split-tile">
+            <div class="bento-media-frame">
+              <picture>
+                <source srcset="assets/klipport-560.webp 560w, assets/klipport-800.webp 800w, assets/klipport.webp 1000w" sizes="(max-width: 900px) 100vw, 480px" type="image/webp" />
+                <img src="assets/klipport.jpg" alt="Klipport encrypted universal clipboard pairing screen" class="bento-img" loading="lazy" decoding="async" width="1000" height="558" />
+              </picture>
+            </div>
+
+            <div class="bento-content">
+              <div class="bento-meta">Cryptographic Sync &amp; PWA</div>
+              <h3 class="bento-title">Klipport Universal Clipboard</h3>
+              <p class="bento-desc">
+                Cross-device sync utility for real-time text, file, and media transfer. Leverages browser-native Web Crypto API (AES-GCM / PBKDF2) for zero-knowledge end-to-end encryption. Pairs clients via 6-digit PIN over WebSockets with offline Service Worker support.
+              </p>
+
+              <details class="tech-details-accordion">
+                <summary class="accordion-trigger">
+                  <span>Cryptographic Pipeline</span>
+                  <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="accordion-body">
+                  <ol class="pipeline-list">
+                    <li><strong>Client-Side Derivation:</strong> Key derived via PBKDF2; encryption uses AES-GCM in the browser. Plaintext never touches network.</li>
+                    <li><strong>PIN Pairing:</strong> Node.js relay handles discovery via ephemeral 6-digit tokens without user accounts.</li>
+                    <li><strong>Encrypted Vault:</strong> Supabase stores ciphertext with server-enforced countdown timers.</li>
+                  </ol>
+                </div>
+              </details>
+
+              <div class="bento-tags">
+                <span class="code-tag">Web Crypto API</span>
+                <span class="code-tag">Socket.io</span>
+                <span class="code-tag">Node.js</span>
+                <span class="code-tag">Supabase</span>
+              </div>
+
+              <div class="bento-actions">
+                <a href="https://klipport.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Visit Live Site</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://github.com/abhisheksati132/klipport" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bento Tile 3: Whispr (Split Tile) -->
+          <article class="bento-card bento-split-tile">
+            <div class="bento-media-frame">
+              <picture>
+                <source srcset="assets/whispr-560.webp 560w, assets/whispr-800.webp 800w, assets/whispr.webp 1000w" sizes="(max-width: 900px) 100vw, 480px" type="image/webp" />
+                <img src="assets/whispr.jpg" alt="Whispr encrypted peer to peer messaging interface" class="bento-img" loading="lazy" decoding="async" width="1000" height="558" />
+              </picture>
+            </div>
+
+            <div class="bento-content">
+              <div class="bento-meta">P2P Encrypted Mesh &amp; WebRTC</div>
+              <h3 class="bento-title">Whispr Encrypted Space</h3>
+              <p class="bento-desc">
+                Private peer-to-peer communication suite featuring full-duplex WebSocket messaging, WebRTC DTLS audio/video channels, and ephemeral auto-expiring media. Operates strictly under zero-knowledge principles where the relay server never inspects decrypted data.
+              </p>
+
+              <details class="tech-details-accordion">
+                <summary class="accordion-trigger">
+                  <span>P2P Protocol Flow</span>
+                  <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="accordion-body">
+                  <ol class="pipeline-list">
+                    <li><strong>Signaling Layer:</strong> Socket.io negotiates peer SDP offers and ICE candidates.</li>
+                    <li><strong>Direct Media Mesh:</strong> Audio and video streams route direct peer-to-peer over WebRTC.</li>
+                    <li><strong>Ephemeral Ciphertext:</strong> Disappearing attachments delete automatically from cloud cache upon timer lapse.</li>
+                  </ol>
+                </div>
+              </details>
+
+              <div class="bento-tags">
+                <span class="code-tag">WebRTC</span>
+                <span class="code-tag">Socket.io</span>
+                <span class="code-tag">Node.js</span>
+                <span class="code-tag">Supabase</span>
+              </div>
+
+              <div class="bento-actions">
+                <a href="https://github.com/abhisheksati132/whispr" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>Source Code</span>
+                </a>
+                <span class="status-note-tag">Deployment in progress</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-footer-cta">
+          <p class="mono-meta-text">
+            Explore additional source repositories and experiments on
+            <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer" class="text-link">GitHub (abhisheksati132)</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section (Diagnostic Engineering Grid) -->
+    <section class="site-section" id="skills">
+      <div class="container">
+        
+        <div class="section-heading-block">
+          <h2 class="section-title">Technical Diagnostics &amp; Stack</h2>
+          <p class="section-lead">
+            Categorized overview of active production tooling, frameworks, protocols, and core CS proficiencies.
+          </p>
+        </div>
+
+        <div class="skills-matrix">
+          
+          <div class="panel-card skill-matrix-card">
+            <div class="skill-category-header">
+              <span class="category-icon-sym">&gt;</span>
+              <h3>Frontend Architecture</h3>
+            </div>
+            <div class="pill-cloud">
+              <span class="skill-pill">React 19</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">Tailwind CSS v4</span>
+              <span class="skill-pill">Mapbox GL JS</span>
+              <span class="skill-pill">HTML5 &amp; CSS3</span>
+              <span class="skill-pill">PWA Service Workers</span>
+            </div>
+          </div>
+
+          <div class="panel-card skill-matrix-card">
+            <div class="skill-category-header">
+              <span class="category-icon-sym">&gt;</span>
+              <h3>Backend &amp; Real-Time</h3>
+            </div>
+            <div class="pill-cloud">
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Express.js</span>
+              <span class="skill-pill">Socket.io</span>
+              <span class="skill-pill">WebRTC Mesh</span>
+              <span class="skill-pill">RESTful APIs</span>
+              <span class="skill-pill">Serverless Functions</span>
+            </div>
+          </div>
+
+          <div class="panel-card skill-matrix-card">
+            <div class="skill-category-header">
+              <span class="category-icon-sym">&gt;</span>
+              <h3>Security &amp; Cloud Data</h3>
+            </div>
+            <div class="pill-cloud">
+              <span class="skill-pill">Web Crypto API</span>
+              <span class="skill-pill">AES-GCM / PBKDF2</span>
+              <span class="skill-pill">Supabase</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MongoDB</span>
+              <span class="skill-pill">Vercel Deployment</span>
+            </div>
+          </div>
+
+          <div class="panel-card skill-matrix-card">
+            <div class="skill-category-header">
+              <span class="category-icon-sym">&gt;</span>
+              <h3>Languages &amp; Core CS</h3>
+            </div>
+            <div class="pill-cloud">
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Data Structures</span>
+              <span class="skill-pill">Operating Systems</span>
+              <span class="skill-pill">Git / Linux</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Telemetry: In-Browser Cryptographic Sandbox -->
+        <div class="panel-card crypto-sandbox-card">
+          <div class="sandbox-header">
+            <div class="sandbox-title-wrap">
+              <span class="sandbox-pulse-dot" aria-hidden="true"></span>
+              <h3 class="sandbox-title">Interactive Telemetry: In-Browser Cryptographic Sandbox</h3>
+            </div>
+            <span class="sandbox-badge">Web Crypto API (Native)</span>
+          </div>
+          <p class="sandbox-desc">
+            Verify client-side zero-knowledge primitives running in real time inside your browser session. Key derivation uses PBKDF2 with SHA-256 and AES-GCM 256-bit encryption.
+          </p>
+
+          <div class="sandbox-workbench">
+            <div class="workbench-input-group">
+              <label for="cryptoInput" class="workbench-label">Plaintext Input Payload</label>
+              <div class="input-with-action">
+                <input type="text" id="cryptoInput" class="workbench-input" value="Zero-knowledge security for distributed systems" placeholder="Enter test payload..." />
+                <button type="button" class="btn btn-primary btn-sm" id="cryptoEncryptBtn">
+                  <span>Derive &amp; Encrypt</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="workbench-results-grid">
+              <div class="result-cell">
+                <div class="result-cell-header">
+                  <span class="cell-label">SHA-256 Digest</span>
+                  <button type="button" class="copy-cell-btn" id="copyShaBtn" aria-label="Copy SHA-256 hash">Copy</button>
+                </div>
+                <div class="code-output" id="sha256Result">Computing digest...</div>
+              </div>
+
+              <div class="result-cell">
+                <div class="result-cell-header">
+                  <span class="cell-label">AES-GCM 256-bit Ciphertext + IV</span>
+                  <button type="button" class="copy-cell-btn" id="copyAesBtn" aria-label="Copy AES-GCM ciphertext">Copy</button>
+                </div>
+                <div class="code-output" id="aesResult">Generating ciphertext...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Education Section -->
-    <section class="section" id="education">
+    <section class="site-section section-elevated" id="education">
       <div class="container">
-        <p class="section-label">04 — Academics</p>
-        <h2>Education</h2>
-        <div class="education-grid">
+        
+        <div class="section-heading-block">
+          <h2 class="section-title">Academic Background</h2>
+          <p class="section-lead">
+            Formal coursework and credentials in Computer Science, Data Science, and algorithmic foundations.
+          </p>
+        </div>
 
-          <div class="education-card card">
-            <h3>Vellore Institute Of Technology</h3>
-            <span class="edu-date">B.Tech CSE (Data Science) // 2024 - 2028</span>
-            <p>Deep-diving into relational databases (SQL), object-oriented programming (Java/C++), operating systems, analysis of algorithms, and statistical machine learning.</p>
-            <span class="chip">CGPA: 9.08</span>
+        <div class="academics-grid">
+          
+          <div class="panel-card edu-primary-card">
+            <div class="edu-header">
+              <div class="edu-title-group">
+                <h3 class="edu-institution">Vellore Institute of Technology (VIT)</h3>
+                <span class="edu-degree">B.Tech Computer Science and Engineering (Data Science)</span>
+              </div>
+              <span class="edu-period">2024 - 2028</span>
+            </div>
+            <p class="edu-text">
+              Focus areas include Database Management Systems (SQL), Object-Oriented Analysis &amp; Design (Java/C++), Operating Systems, Analysis of Algorithms, and Statistical Machine Learning.
+            </p>
+            <div class="edu-cgpa-badge">
+              <span class="cgpa-key">Cumulative GPA:</span>
+              <span class="cgpa-val">9.08 / 10.0</span>
+            </div>
           </div>
 
-          <div class="education-card card">
-            <h3>Higher Secondary Education (PCM)</h3>
-            <span class="edu-date">CBSE 12th // Class of 2023</span>
-            <p>Bansal Public School, Kota, Rajasthan, India.</p>
-            <span class="chip">Percentage: 75%</span>
+          <div class="panel-card edu-secondary-card">
+            <div class="edu-header">
+              <div class="edu-title-group">
+                <h3 class="edu-institution">Bansal Public School, Kota</h3>
+                <span class="edu-degree">Higher Secondary Education (Class XII - PCM)</span>
+              </div>
+              <span class="edu-period">Class of 2023</span>
+            </div>
+            <p class="edu-text">CBSE Board curriculum with physics, chemistry, and mathematics focus.</p>
+            <span class="edu-score-pill">Percentage: 75%</span>
           </div>
 
-          <div class="education-card card">
-            <h3>Secondary Education (Science &amp; Math)</h3>
-            <span class="edu-date">CBSE 10th // Class of 2021</span>
-            <p>St. Joseph Public School, Kota, Rajasthan, India.</p>
-            <span class="chip">Percentage: 82%</span>
+          <div class="panel-card edu-secondary-card">
+            <div class="edu-header">
+              <div class="edu-title-group">
+                <h3 class="edu-institution">St. Joseph Public School, Kota</h3>
+                <span class="edu-degree">Secondary Education (Class X)</span>
+              </div>
+              <span class="edu-period">Class of 2021</span>
+            </div>
+            <p class="edu-text">CBSE Board foundational mathematics and sciences.</p>
+            <span class="edu-score-pill">Percentage: 82%</span>
           </div>
 
         </div>
+
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section section-contact" id="contact">
-      <div class="container section-grid">
-        <div class="contact-info">
-          <p class="section-label">05 — Contact</p>
-          <h2>Let's start a conversation</h2>
-          <p>Interested in collaborating on frontend development, full-stack systems, or data visualization pipelines? Send a note through the form, or reach out on any of my channels.</p>
-          <div class="contact-details">
-            <div class="contact-mail-wrapper">
-              <a class="contact-item contact-mail" href="mailto:abhisheksativit@gmail.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <span>abhisheksativit@gmail.com</span>
-              </a>
-              <button class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address to clipboard" type="button" title="Copy email address">
-                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    <!-- Contact & Dispatch Section -->
+    <section class="site-section" id="contact">
+      <div class="container">
+        
+        <div class="section-heading-block">
+          <h2 class="section-title">Initiate Connection</h2>
+          <p class="section-lead">
+            Available for software engineering internships and collaborative full-stack projects for Summer 2027.
+          </p>
+        </div>
+
+        <div class="contact-terminal-grid">
+          
+          <div class="contact-dispatch-panel">
+            <h3 class="dispatch-title">Direct Inquiries</h3>
+            <p class="dispatch-text">
+              Reach out directly via email for technical questions, collaboration proposals, or project discussions.
+            </p>
+
+            <div class="copy-email-bar">
+              <a href="mailto:abhisheksativit@gmail.com" class="email-address-text">abhisheksativit@gmail.com</a>
+              <button type="button" class="btn-copy-action" id="copyEmailBtn" aria-label="Copy email address to clipboard" title="Copy email address">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 <span class="copy-tooltip">Copy</span>
               </button>
             </div>
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>Vellore, Tamil Nadu, India &middot; IST &middot; it's <span id="localTime">--:--</span> there now</span>
+
+            <div class="dispatch-telemetry-meta">
+              <div class="meta-row">
+                <span class="meta-key">Location:</span>
+                <span class="meta-val">Vellore, Tamil Nadu, India</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-key">Timezone:</span>
+                <span class="meta-val">IST (UTC+5:30) · <span id="localTime" class="mono-num">--:--</span></span>
+              </div>
             </div>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer me">
-                <span>LinkedIn</span>
-              </a>
-              <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer me">
+
+            <div class="social-channels">
+              <a href="https://github.com/abhisheksati132" target="_blank" rel="noopener noreferrer" class="social-btn">
                 <span>GitHub</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
-              <a href="https://www.instagram.com/satiabhishek" target="_blank" rel="noopener noreferrer me">
+              <a href="https://www.linkedin.com/in/abhisheksati132" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <span>LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+              <a href="https://www.instagram.com/satiabhishek" target="_blank" rel="noopener noreferrer" class="social-btn">
                 <span>Instagram</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
             </div>
           </div>
+
+          <form class="panel-card contact-form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="0fac9bf3-baac-4516-8ebf-7a88caa1078b" />
+            <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" style="display:none;" />
+            
+            <div class="form-group">
+              <label for="formName" class="form-label">Full Name</label>
+              <input type="text" id="formName" name="name" class="form-input" placeholder="e.g. Alex Mercer" autocomplete="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="formEmail" class="form-label">Email Address</label>
+              <input type="email" id="formEmail" name="email" class="form-input" placeholder="name@domain.com" autocomplete="email" spellcheck="false" required />
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage" class="form-label">Message Payload</label>
+              <textarea id="formMessage" name="message" class="form-input form-textarea" rows="4" placeholder="Detail your project scope, questions, or schedule..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span id="submitBtnLabel">Send Message</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+
+            <p class="form-security-note">Encrypted transmission handled via Web3Forms. No spam or third-party tracking.</p>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
         </div>
 
-        <form class="contact-form card" id="contactForm" novalidate>
-          <input type="hidden" name="access_key" value="0fac9bf3-baac-4516-8ebf-7a88caa1078b" />
-          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" />
-          <div class="input-group">
-            <label for="formName">Name</label>
-            <input type="text" id="formName" name="name" placeholder="Abhishek Sati" autocomplete="name" required />
-          </div>
-          <div class="input-group">
-            <label for="formEmail">Email</label>
-            <input type="email" id="formEmail" name="email" placeholder="example@gmail.com" autocomplete="email" spellcheck="false" required />
-          </div>
-          <div class="input-group">
-            <label for="formMessage">Message</label>
-            <textarea id="formMessage" name="message" rows="5" placeholder="Let's build something together..." required></textarea>
-          </div>
-          <button type="submit" class="button button-primary" id="submitBtn">
-            <span id="submitBtnLabel">Send Message</span>
-          </button>
-          <p class="form-note">Submissions are delivered securely via Web3Forms &mdash; your details are used only to reply.</p>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="footerYear">2026</span> Abhishek Sati. Built with HTML, CSS &amp; JavaScript.</p>
-      <p class="kbd-hints" aria-hidden="true">
-        <kbd>T</kbd> theme &middot; <kbd>A</kbd> about &middot; <kbd>P</kbd> projects &middot; <kbd>C</kbd> contact &middot; <kbd>Ctrl</kbd><kbd>K</kbd> commands
-      </p>
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-copy">&copy; <span id="footerYear">2026</span> Abhishek Sati. Engineering Portfolio.</span>
+      </div>
+      <div class="footer-right">
+        <div class="kbd-shortcuts" aria-label="Keyboard shortcuts">
+          <span class="kbd-item"><kbd>T</kbd> Theme</span>
+          <span class="kbd-item"><kbd>P</kbd> Projects</span>
+          <span class="kbd-item"><kbd>C</kbd> Contact</span>
+          <span class="kbd-item"><kbd>Ctrl</kbd>+<kbd>K</kbd> Command Palette</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <button type="button" class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </button>
 
-  <!--
-    ANALYTICS — Vercel Web Analytics:
-    1. Enable Web Analytics in your Vercel project dashboard (Settings > Analytics)
-    2. Add https://vercel.com/insights to script-src in vercel.json's CSP
-    3. Uncomment this tag:
-    <script defer src="/_vercel/insights/script.js"></script>
-  -->
-  <script src="script.js?v=20260824"></script>
+  <script type="module" src="script.js?v=20261006"></script>
 </body>
 </html>

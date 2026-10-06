@@ -1,12 +1,12 @@
 {
-  "name": "Abhishek Sati — Portfolio",
+  "name": "Abhishek Sati | Developer Portfolio",
   "short_name": "Abhishek Sati",
-  "description": "Portfolio of Abhishek Sati, CSE (Data Science) undergrad at VIT. Developer of NewsAtlas and Klipport.",
+  "description": "Portfolio of Abhishek Sati, CSE (Data Science) undergrad at VIT Vellore. Developer of NewsAtlas, Klipport, and Whispr.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#FAF9F5",
-  "theme_color": "#FAF9F5",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
   "icons": [
     { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
