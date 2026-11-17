@@ -1,68 +1,80 @@
-# Abhishek Sati — Portfolio
+# Abhishek Sati — Systems & Software Portfolio
 
-Single-page static portfolio. No framework, no build step — plain HTML/CSS/JS served as-is.
+Engineering portfolio of Abhishek Sati, B.Tech Computer Science and Engineering (Data Science) undergraduate at Vellore Institute of Technology (VIT).
 
-## Stack
+Live: [https://abhisheksati.vercel.app/](https://abhisheksati.vercel.app/)  
+3D Studio: [https://abhisheksati.vercel.app/studio.html](https://abhisheksati.vercel.app/studio.html)
 
-- **HTML / CSS / vanilla JS** (one file each, no bundler)
-- **Web3Forms** for the contact form (public access key in `index.html` — by design)
-- **github-readme-stats** embed in the Projects section
-- **Google Fonts** (Fraunces only; body uses system stack)
-- **Service worker** (`sw.js`) for offline support + PWA install
-- Hosted on **Vercel** at the domain root
+---
 
-## Local preview
+## Technical Stack & Architecture
+
+- **Core Frontend:** Semantic HTML5, modern CSS3 custom properties design system, and vanilla ES6+ JavaScript (zero external runtime dependencies).
+- **Typography:** [Geist & Geist Mono](https://vercel.com/font) via Google Fonts.
+- **Design Paradigm:** Tactile dark engineering aesthetics with single locked Electric Ember accent (`#ff5500`), slate surface elevation, and strict WCAG 2.1 AA accessibility.
+- **3D Interactive Studio:** Standalone Three.js WebGL CRT Workstation scene (`studio.html`) with direct native rendering and quick navigation badge.
+- **Cryptographic Telemetry:** In-browser Web Crypto API workbench running client-side SHA-256 digests and AES-GCM 256-bit authenticated encryption with 96-bit random IVs.
+- **PWA & Offline Resilience:** Service Worker (`sw.js`) providing offline shell caching, stale-while-revalidate asset serving, and offline 404 routing.
+- **Contact Pipeline:** Encrypted transmission via Web3Forms endpoint with botcheck honeypot and real-time client validation.
+- **Hosting & Infrastructure:** Deployed on **Vercel** with strict Content Security Policy (CSP), subresource integrity, and custom security headers.
+
+---
+
+## Featured Engineering Projects
+
+1. **NewsAtlas Intelligence Terminal:** Global situational awareness dashboard projecting live news feeds, economic indicators, and weather systems onto an interactive 3D Mapbox GL globe, with real-time geopolitical synthesis powered by Llama 3.3 via Groq.
+2. **Klipport Universal Clipboard:** Zero-knowledge cross-device synchronization utility leveraging browser-native Web Crypto API (PBKDF2 / AES-GCM) and WebSocket PIN pairing.
+3. **Whispr Encrypted Space:** Peer-to-peer messaging and media suite utilizing WebSockets for signaling and direct WebRTC DTLS mesh channels for encrypted audio/video.
+
+---
+
+## Local Development
 
 ```powershell
-# from repo root
-python -m http.server 8080
-# or
-npx serve .
+# Install dependencies
+npm install
+
+# Start Vite live dev server (http://localhost:5173)
+npm run dev
+
+# Compile production bundle to dist/
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-Open http://localhost:8080. The service worker registers on localhost too.
+---
 
-## Validation (same checks CI runs)
+## Validation & CI / CD
+
+The repository runs automated GitHub Actions CI (`.github/workflows/ci.yml`) on all pushes to `master`:
 
 ```bash
-npx --yes html-validate --rule void-style:off --rule no-raw-characters:off index.html 404.html
-node --check script.js && node --check sw.js && node --check tools/check-csp.mjs
+# Verify Content Security Policy inline script SHA-256 hashes
 node tools/check-csp.mjs
+
+# Check JavaScript syntax
+node --check script.js
+node --check sw.js
+node --check tools/check-csp.mjs
+
+# Validate PWA manifest
+node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'))"
+
+# Validate HTML compliance
+npx --yes html-validate --rule void-style:off --rule no-raw-characters:off index.html 404.html
 ```
 
-## Conventions
+---
 
-- **Cache-busting:** when you change `styles.css` or `script.js`, bump the `?v=YYYYMMDD`
-  query string in both `index.html` and `404.html`, AND update the matching paths in
-  `sw.js` PRECACHE. Bump `VERSION` in `sw.js` so old caches are purged.
-- **Inline scripts:** the theme-init scripts in `index.html` and `404.html` are
-  hashed into the CSP in `vercel.json`. If you edit either, recompute its hash
-  and update both places — `tools/check-csp.mjs` (run by CI) will fail loudly
-  if they drift.
-- **Icons:** regenerate with `powershell -ExecutionPolicy Bypass -File tools/generate-icons.ps1`.
-  Colors are hardcoded there to match `:root` design tokens.
-- **Design tokens:** warm editorial system — bg `#FAF9F5`, surface `#FFFFFF`,
-  accent `#D97757` (light) / `#262624` bg (dark). Display font: Fraunces.
-  All tokens live in `styles.css :root`.
+## Conventions & Rules
 
-## Deployment constraint
-
-Absolute paths (`/assets/...`, `/sw.js`, `/styles.css`) assume **root-domain deployment**
-(Vercel apex/subdomain). Hosting under a subpath (e.g., GitHub Pages project site)
-requires relativizing those URLs first.
-
-## Keyboard shortcuts
-
-`T` theme · `A` about · `P` projects · `C` contact · `Ctrl/Cmd + K` command palette
-
-## Writing
-
-Prose-complete post drafts live in `writing/` — conceptual sections are written;
-`TODO(you)` slots mark where real snippets, measured numbers, and media from the
-actual codebases go in. Resolve every slot, publish, then uncomment the blog-links
-block in `index.html` and link the published URLs.
-
-## Manual (dashboard) tasks
-
-- Enable **Vercel Web Analytics**, then uncomment the analytics tag near `</body>` in `index.html`.
-- Toggle Web3Forms' built-in spam protection in their dashboard if form spam appears.
+- **Content Security Policy:** The theme initialization scripts in `index.html` and `404.html` are strictly hashed in `vercel.json`. If you edit either inline script, update its SHA-256 hash in `vercel.json` or `tools/check-csp.mjs` will fail CI.
+- **Cache Busting:** When modifying `styles.css` or `script.js`, bump the `?v=YYYYMMDD` query string in `index.html` and `404.html`, and update matching paths in `sw.js` `PRECACHE` (bumping `VERSION`).
+- **Keyboard Shortcuts:**
+  - `T`: Toggle light / dark theme
+  - `P`: Scroll to Projects
+  - `A`: Scroll to About
+  - `C`: Scroll to Contact
+  - `Ctrl` / `Cmd` + `K`: Open interactive Command Palette

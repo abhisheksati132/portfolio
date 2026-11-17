@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Single-page static portfolio. No framework, no build step — plain HTML/CSS/JS served as-is.",
+  "description": "Tactile dark engineering portfolio of Abhishek Sati, CSE (Data Science) undergraduate at VIT Vellore.",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.2",
-    "vite": "^8.3.2"
+    "vite": "^8.3.8"
   }
 }
