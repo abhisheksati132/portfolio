@@ -19,6 +19,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         studio: path.resolve(__dirname, 'studio.html'),
+        notfound: path.resolve(__dirname, '404.html'),
       },
     },
   },
